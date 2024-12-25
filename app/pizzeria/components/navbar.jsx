@@ -7,7 +7,7 @@ export default function Navbar(){
         {title:'French Food',href:'/french-food'},
     ]
     return(
-        <div className="fixed right-0 left-0 z-50">
+        <div className="fixed right-0 left-0 z-30">
             <div className="bg-primary">
                 <div className=" w-full  container py-3  flex flex-row justify-between items-center">
                     <div>

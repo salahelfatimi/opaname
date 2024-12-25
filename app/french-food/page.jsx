@@ -1,12 +1,12 @@
 import FoodCarousel from "@/components/tools/foodCarousel";
-import PizzeriaHome from "./components/frenchFoodHome";
+import FrenchFood from "./components/frenchFoodHome";
 import FilterButton from "./components/filterButton";
 import Link from "next/link";
 
 export default function Page(){
     return(
        <div className=" flex flex-col gap-10 ">
-            <PizzeriaHome/>
+            <FrenchFood/>
             <div className=" flex flex-col items-center justify-center gap-4 ">
                 <h2 className="uppercase font-black text-2xl lg:text-6xl text-white text-center">Nos Délicieuses <span className=" text-primary">french food </span> </h2>
                 <FoodCarousel/>

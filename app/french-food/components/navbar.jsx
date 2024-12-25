@@ -1,4 +1,4 @@
-import { Dot, Facebook, Instagram, Map, MapPin, Menu, Phone } from "lucide-react"
+import { Dot, Facebook, Instagram, Map, MapPin, Menu, Phone, ShoppingBasket } from "lucide-react"
 import Link from "next/link"
 
 export default function Navbar(){
@@ -7,7 +7,7 @@ export default function Navbar(){
         {title:'Pizzeria',href:'/pizzeria'},
     ]
     return(
-        <div className="fixed right-0 left-0 z-50">
+        <div className="fixed right-0 left-0 z-30">
             <div className="bg-primary">
                 <div className=" w-full  container py-3  flex flex-row justify-between items-center">
                     <div>
@@ -40,8 +40,7 @@ export default function Navbar(){
                                 ))
                             }
                         </div>
-                        <Link href={'/french-food/menu-french-food'} className=" bg-primary py-3 px-4 hover:bg-secondary border border-primary hover:text-prborder-primary duration-700 text-sm font-bold text-white rounded">Commandez maintenant</Link>
-                        
+                        <Link href={'/french-food/menu-french-food'} className=" bg-primary py-2 px-3 hover:bg-secondary border border-primary hover:text-prborder-primary duration-700 text-sm font-bold text-white rounded">Commandez maintenant</Link>
                     </div>
                     <Menu size={40} className="flex  lg:hidden bg-secondary p-1 stroke-white"/>
                 </div>

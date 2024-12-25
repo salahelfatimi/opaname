@@ -30,7 +30,7 @@ export default function PizzeriaHome(){
                         <button onClick={()=>(setOpen(!open))} className=" w-full justify-center bg-secondary border-primary border-4 py-2 px-6 font-black text-xl text-white rounded-full flex items-center gap-1 group hover:border-white duration-700 hover:bg-secondary">Commandez 🍕 <ChevronDown className={` group-hover:animate-bounce  ${open?'rotate-180':' rotate-0'} duration-700`} /></button>
                         <div className={`bg-primary p-2 rounded font-bold text-white w-full   absolute bottom-16 flex flex-col gap-2 items-center justify-center ${open?'block':'hidden'}`}>
                             <Link href={'https://glovoapp.com/ma/en/marrakech/opaname-mar'} target="_blank" className=" hover:bg-secondary p-2 w-full text-center  duration-500 rounded-full text-sm">Commandez avec Glovo</Link>
-                            <Link  href={'/'}  className=" hover:bg-secondary p-2 w-full text-center  duration-500 rounded-full text-sm">Commandez avec notre livreur</Link>
+                            <Link  href={'/pizzeria/menu-pizzeria'}  className=" hover:bg-secondary p-2 w-full text-center  duration-500 rounded-full text-sm">Commandez avec notre livreur</Link>
                         </div>
                     </div>
                 </div>
