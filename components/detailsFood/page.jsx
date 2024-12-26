@@ -85,7 +85,7 @@ export default function DetailsFood({ id, onClose }) {
               <p className="mt-2 text-sm md:text-base lg:text-lg" dangerouslySetInnerHTML={{ __html: foodDetails?.description }}></p>
               <div>
                 <h3 className="text-xl font-bold text-primary uppercase">Options :</h3>
-                <div className="h-32 lg:h-96 overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-primary scrollbar-track-secondary select-none">
+                <div className="h-32 lg:h-64 overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-primary scrollbar-track-secondary select-none">
                   {optionSelect.length > 0 ? (
                     optionSelect.map((option, index) => (
                       <div key={index} className="flex justify-between items-center border-b border-primary py-2">

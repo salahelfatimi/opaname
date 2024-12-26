@@ -10,7 +10,6 @@ export default function Page(){
             <div className=" flex flex-col items-center justify-center gap-4 ">
                 <h2 className="uppercase font-black text-2xl lg:text-6xl text-white text-center">Nos Délicieuses <span className=" text-primary">food </span> </h2>
                 <FoodCarousel/>
-                <Link href={'/food/menu-food'} className=' bg-primary border-4 border-primary hover:bg-secondary hover:text-primary duration-700 w-fit py-2 px-5 text-white font-bold rounded-full text-xl'>Explorez notre Menu 🍽️</Link>
             </div>
             <div className="flex flex-col">
                 <div className=" flex flex-col-reverse lg:flex-row gap-10 w-full items-center justify-center ">
@@ -22,8 +21,7 @@ export default function Page(){
                             mélange parfait de viande savoureuse, de légumes croquants, et de sauces 
                             onctueuses, enveloppé dans un pain pita moelleux.
                         </p>
-                        <Link href={'/'} className=" bg-secondary hover:bg-primary border-4 border-secondary   hover:border-white duration-700 text-white hover:text-white  lg:text-2xl text-sm4
-                        font-bold  py-2 px-4 rounded-full text-center capitalize" >Commandez 🍕</Link>
+                        <Link href={'/food/menu-food'} className=" bg-secondary hover:bg-primary border-4 border-secondary   hover:border-white duration-700 text-white hover:text-white  lg:text-2xl text-sm font-bold  py-2 px-4 rounded-full text-center capitalize" >Commandez avec notre livreur </Link>
                     </div>
                     <div className=" lg:w-1/2 flex items-center justify-center h-[40vh] p-10">
                         <img src="/logo.png" alt="French O'Paname" title="French O'Paname"  className="object-cover w-80" />

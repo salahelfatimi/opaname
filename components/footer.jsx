@@ -6,7 +6,7 @@ export default function Footer(){
             <p className={`select-none flex gap-1  flex-col lg:flex-row  text-lg items-center font-medium capitalize text-center lg:text-start text-white `}>
                 Copyright &copy; {new Date().getFullYear()} . Tous droits réservés . 
                 <span className=" text-primary uppercase font-black   ">
-                    O'Paname
+                    French O'Paname
                 </span>
             </p>
             </div>

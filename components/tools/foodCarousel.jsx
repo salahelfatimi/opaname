@@ -45,8 +45,8 @@ export default function FoodCarousel() {
                 : (
                   <div className=" h-48 rounded-full w-48 bg-primary flex items-center justify-center"><ImageOff size={70} className=' stroke-white' /></div>
                 )}
-                  <div className=' absolute right-0 bottom-6 bg-primary border-4 border-secondary w-14 h-14 flex items-center justify-center rounded-full '>
-                      <p className='font-bold text-xs text-white'>{food.price} DH</p>
+                  <div className=' absolute right-0 bottom-6 bg-primary border-4 border-secondary w-16 h-16 flex items-center justify-center rounded-full '>
+                      <p className='font-black animate-pulse text-white'>{food.price} DH</p>
                   </div>
                 </div>
                 <div>
