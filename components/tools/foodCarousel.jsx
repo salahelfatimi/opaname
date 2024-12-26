@@ -41,12 +41,12 @@ export default function FoodCarousel() {
           {foodScroll.map((food, index) => (
             <Link href={`/food/menu-food?id=${food.id}`}  key={index} className="pl-10 relative flex flex-row items-center justify-center gap-4 flex-shrink-0 group ">
                 <div className=' relative'>
-                {food?.images[0] ? (<img src={food?.images[0]?.src} alt={food.name} className="w-48 bg-primary p-2 object-cover h-48 rounded-full group-hover:scale-105 duration-700"/> ) 
+                {food?.images[0] ? (<img src={food?.images[0]?.src} alt={food.name} className="w-44 bg-primary p-1 object-cover h-44 rounded-full group-hover:scale-105 duration-700"/> ) 
                 : (
-                  <div className=" h-48 rounded-full w-48 bg-primary flex items-center justify-center"><ImageOff size={70} className=' stroke-white' /></div>
+                  <div className=" h-44 rounded-full w-44 bg-primary flex items-center justify-center"><ImageOff size={70} className=' stroke-white' /></div>
                 )}
-                  <div className=' absolute right-0 bottom-6 bg-primary border-4 border-secondary w-16 h-16 flex items-center justify-center rounded-full '>
-                      <p className='font-black animate-pulse text-white'>{food.price} DH</p>
+                  <div className=' absolute right-0 bottom-6 bg-primary border-4 border-secondary w-14 h-14 flex items-center justify-center rounded-full '>
+                      <p className='font-black text-sm animate-pulse text-white'>{food.price} DH</p>
                   </div>
                 </div>
                 <div>
