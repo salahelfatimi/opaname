@@ -61,7 +61,8 @@ export default function DetailsFood({ id, onClose }) {
   }
     // Save the food array back to localStorage
   const saveFoodToLocalStorage = () => {
-    const foodData = { name, description, priceTotal, quantity, optionSelect };
+
+    const foodData = {id: Date.now(),name, description, priceTotal, quantity, optionSelect };
     let savedFoods = JSON.parse(localStorage.getItem("SelectFood")) || [];
     savedFoods.push(foodData);
     localStorage.setItem("SelectFood", JSON.stringify(savedFoods));
@@ -84,15 +85,19 @@ export default function DetailsFood({ id, onClose }) {
               <p className="mt-2 text-sm md:text-base lg:text-lg" dangerouslySetInnerHTML={{ __html: foodDetails?.description }}></p>
               <div>
                 <h3 className="text-xl font-bold text-primary uppercase">Options :</h3>
-                <div className=" max-h-32 lg:max-h-96 overflow-y-auto p-2 scrollbar-thin  scrollbar-thumb-primary scrollbar-track-secondary select-none ">
-                  {optionSelect.map((option, index) => (
-                    <div key={index} className="flex justify-between items-center border-b border-primary py-2">
-                      <span className=' font-bold'>{option.name}</span>
-                      <div className=' bg-primary p-1 rounded-full cursor-pointer hover:rotate-180 duration-700'>
-                        <X size={20}  onClick={() =>selectOption(option.name,index)}/>
+                <div className="max-h-32 lg:max-h-96 overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-primary scrollbar-track-secondary select-none">
+                  {optionSelect.length > 0 ? (
+                    optionSelect.map((option, index) => (
+                      <div key={index} className="flex justify-between items-center border-b border-primary py-2">
+                        <span className="font-bold">{option.name}</span>
+                        <div className="bg-primary p-1 rounded-full cursor-pointer hover:rotate-180 duration-700">
+                          <X size={20} onClick={() => selectOption(option.name, index)} />
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))
+                  ) : (
+                    <span className="text-white">Pas d'options sélectionnées</span>
+                  )}
                 </div>
               </div>
             </div>
@@ -103,16 +108,17 @@ export default function DetailsFood({ id, onClose }) {
               {quantity}
               <Plus className='cursor-pointer stroke-white bg-primary rounded-full p-2' size={45} onClick={() => setQuantity(quantity + 1)} />
             </div>
-            <button onClick={saveFoodToLocalStorage}  className='bg-primary w-full py-3 rounded-full font-bold text-xl duration-700'>ajouter {priceTotal * quantity} DH </button>
-          </div>
+              <button disabled={optionSelect.length < 3} onClick={saveFoodToLocalStorage} className={`bg-primary w-full py-3 rounded-full font-bold text-xl duration-700 ${optionSelect.length < 3 ? 'opacity-50 cursor-not-allowed' : ''}`} > {optionSelect.length < 3 ? "Il faut sélectionner 3 options ou plus" : `Ajouter ${priceTotal * quantity} DH`} </button>
+            </div>
         </div>
         <div className='text-white flex lg:w-1/2 flex-col items-start gap-8 lg:overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-primary scrollbar-track-secondary '>
           {foodDetails?.attributes.map((attr, index) => (
             <div key={index} className="flex flex-col gap-4 justify-between w-full">
               <div className='text-white lg:text-2xl w-full font-extrabold'><span className='text-primary'>{index+1} -</span> {attr.name}</div>
+              <div>{attr.id === 1 || attr.id === 3 ? <span className=' text-sm'>Choisissez entre une et trois options  <span className=' bg-primary px-2 py-1 rounded-full text-xs'>requises</span></span> : ''}</div>
               <div className='flex flex-col gap-4 pl-8'>
               {attr.options.map((option, index) => (
-                  <button onClick={() =>selectOption(option,index)}  key={index} className={`cursor-pointer border border-primary hover:bg-primary py-3 px-2 rounded duration-700 flex justify-between ${optionSelect.some((selected) => selected.name === option) ? 'bg-primary text-white' : '' }`}> 
+                  <button  onClick={() =>selectOption(option,index)}  key={index} className={` border border-primary hover:bg-primary py-3 px-2 rounded duration-700 flex justify-between ${optionSelect.some((selected) => selected.name === option) ? 'bg-primary text-white' : '' }`}> 
                     {option} 
                     {optionSelect.some((selected) => selected.name === option) ? <Check className=''/> : <Plus /> }
                   </button>
