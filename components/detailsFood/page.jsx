@@ -6,11 +6,12 @@ import { Check, Minus, Plus, X } from "lucide-react";
 export default function DetailsFood({ id, onClose }) {
   const [foodDetails, setFoodDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
   const [priceTotal, setPriceTotal] = useState();
   const [quantity, setQuantity] = useState(1);
   const [optionSelect, setOptionSelect] = useState([]);
-  const [allFood, setAllFood] = useState([]);
- 
+ // fetch all food from restapi wordpresss
   useEffect(() => {
     let isMounted = true;
     const fetchFood = async () => {
@@ -22,12 +23,13 @@ export default function DetailsFood({ id, onClose }) {
           const foodData = await response.json();
           if (isMounted) {
             setFoodDetails(foodData);
+            setName(foodData.name);
+            setDescription(foodData.description);
             setPriceTotal(parseInt(foodData.price));
-            setError(null);
           }
         }
       } catch (err) {
-        console.log("Network error, please try again.");
+        console.error("Network error, please try again.", err);
       } finally {
         if (isMounted) {
           setIsLoading(false);
@@ -39,10 +41,11 @@ export default function DetailsFood({ id, onClose }) {
       isMounted = false;
     };
   }, [id]);
+
   if (isLoading) {
     return <Loading />;
   }
-
+  // select option foood
   const selectOption = (option, index) => {
     const match = option.match(/\+([\d,]+)/);
     const price = match ? parseInt(match[1]) : 0;
@@ -56,8 +59,14 @@ export default function DetailsFood({ id, onClose }) {
       setPriceTotal(priceTotal + price);
     }
   }
-
-
+    // Save the food array back to localStorage
+  const saveFoodToLocalStorage = () => {
+    const foodData = { name, description, priceTotal, quantity, optionSelect };
+    let savedFoods = JSON.parse(localStorage.getItem("SelectFood")) || [];
+    savedFoods.push(foodData);
+    localStorage.setItem("SelectFood", JSON.stringify(savedFoods));
+    onClose();
+  };
 
   return (
    
@@ -75,7 +84,7 @@ export default function DetailsFood({ id, onClose }) {
               <p className="mt-2 text-sm md:text-base lg:text-lg" dangerouslySetInnerHTML={{ __html: foodDetails?.description }}></p>
               <div>
                 <h3 className="text-xl font-bold text-primary uppercase">Options :</h3>
-                <div className="max-h-96 overflow-y-auto p-2 scrollbar-thin  scrollbar-thumb-primary scrollbar-track-secondary select-none ">
+                <div className=" max-h-32 lg:max-h-96 overflow-y-auto p-2 scrollbar-thin  scrollbar-thumb-primary scrollbar-track-secondary select-none ">
                   {optionSelect.map((option, index) => (
                     <div key={index} className="flex justify-between items-center border-b border-primary py-2">
                       <span className=' font-bold'>{option.name}</span>
@@ -94,7 +103,7 @@ export default function DetailsFood({ id, onClose }) {
               {quantity}
               <Plus className='cursor-pointer stroke-white bg-primary rounded-full p-2' size={45} onClick={() => setQuantity(quantity + 1)} />
             </div>
-            <button className='bg-primary w-full py-3 rounded-full font-bold text-xl duration-700'>ajouter {priceTotal * quantity} DH </button>
+            <button onClick={saveFoodToLocalStorage}  className='bg-primary w-full py-3 rounded-full font-bold text-xl duration-700'>ajouter {priceTotal * quantity} DH </button>
           </div>
         </div>
         <div className='text-white flex lg:w-1/2 flex-col items-start gap-8 lg:overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-primary scrollbar-track-secondary '>
