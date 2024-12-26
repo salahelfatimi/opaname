@@ -75,7 +75,7 @@ export default function DetailsFood({ id, onClose }) {
       <button onClick={onClose} className="fixed z-50 top-4 right-4 bg-primary p-2 rounded-full shadow-lg">
         <X size={35} className='stroke-white'/>
       </button>
-      <div className='overflow-y-auto lg:overflow-y-hidden flex flex-col lg:flex-row-reverse justify-between gap-20 h-[100%] lg:h-[90%] lg:w-[80%] w-[100%] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 p-6'>
+      <div className='overflow-y-auto lg:overflow-y-hidden flex flex-col lg:flex-row-reverse justify-between gap-20 h-[100%] lg:h-[90%] lg:w-[80%] w-[100%] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 p-2'>
         <div className='text-white lg:w-1/2 flex flex-col gap-10 justify-between h-full'>
           <div className='flex flex-col lg:flex-row items-start gap-4'>
             {foodDetails?.images[0]?.src && <img src={foodDetails.images[0].src} alt={foodDetails.name} className='w-full lg:w-60 h-60 object-bottom object-cover mt-4 rounded-xl'/>}
@@ -85,7 +85,7 @@ export default function DetailsFood({ id, onClose }) {
               <p className="mt-2 text-sm md:text-base lg:text-lg" dangerouslySetInnerHTML={{ __html: foodDetails?.description }}></p>
               <div>
                 <h3 className="text-xl font-bold text-primary uppercase">Options :</h3>
-                <div className="max-h-32 lg:max-h-96 overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-primary scrollbar-track-secondary select-none">
+                <div className="h-32 lg:h-96 overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-primary scrollbar-track-secondary select-none">
                   {optionSelect.length > 0 ? (
                     optionSelect.map((option, index) => (
                       <div key={index} className="flex justify-between items-center border-b border-primary py-2">

@@ -23,10 +23,14 @@ export default function CartFood({id}) {
     };
     // delete food from local storage
     const removeFoodFromLocalStorage = (idToRemove) => {
-        let savedFoods = JSON.parse(localStorage.getItem("SelectFood")) || [];
-        savedFoods = savedFoods.filter((food) => food.id !== idToRemove);
-        localStorage.setItem("SelectFood", JSON.stringify(savedFoods));
-        setSavedFoods(savedFoods); // Update state to reflect the removal
+        const confirmDelete = window.confirm("Êtes-vous sûr de vouloir supprimer cet article ?");
+        if (confirmDelete) {
+            let savedFoods = JSON.parse(localStorage.getItem("SelectFood")) || [];
+            savedFoods = savedFoods.filter((food) => food.id !== idToRemove);
+            localStorage.setItem("SelectFood", JSON.stringify(savedFoods));
+            setSavedFoods(savedFoods); // Update state to reflect the removal
+        }
+        
     };
     // Function to strip HTML tags from a string
     const stripHtmlTags = (html) => {
