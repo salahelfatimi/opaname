@@ -1,6 +1,7 @@
-import FoodCarousel from "@/components/tools/foodCarousel";
-import { ChevronDown } from "lucide-react";
+
 import Link from "next/link";
+import Loading from "./loading";
+import LoadingPage from "@/components/tools/loading";
 
 export async function generateMetadata() {
   return {
@@ -40,8 +41,10 @@ export async function generateMetadata() {
  
 }
 export default function Home() {
+   
   return (
     <div className=" relative h-[100vh]    overflow-hidden flex flex-col  justify-between  bg-secondary ">
+      
       <div className=" absolute z-20 inset-0 bg-black opacity-30"></div>
       <video
         width="100%"
@@ -64,7 +67,7 @@ export default function Home() {
             <Link href={'/french-food'} className="bg-secondary  w-full uppercase text-lg lg:text-3xl font-black  py-3 hover:bg-white hover:text-primary  border-4  border-primary duration-500 px-8 text-center text-white ">French Food 🥙</Link>
           </div>
         </div>
-       
+       <LoadingPage/>
     </div>
   );
 }
