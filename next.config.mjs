@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'plum-capybara-409476.hostingersite.com',
+                hostname: 'french-opaname.store',
                 pathname: '/wp-content/uploads/**',
             },
         ],

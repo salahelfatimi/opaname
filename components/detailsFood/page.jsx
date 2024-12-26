@@ -75,7 +75,7 @@ export default function DetailsFood({ id, onClose }) {
       <button onClick={onClose} className="fixed z-50 top-4 right-4 bg-primary p-2 rounded-full shadow-lg">
         <X size={35} className='stroke-white'/>
       </button>
-      <div className='overflow-y-auto lg:overflow-y-hidden flex flex-col lg:flex-row-reverse justify-between gap-6 h-[100%] lg:h-[90%] lg:w-[80%] w-[100%] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 p-6'>
+      <div className='overflow-y-auto lg:overflow-y-hidden flex flex-col lg:flex-row-reverse justify-between gap-20 h-[100%] lg:h-[90%] lg:w-[80%] w-[100%] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 p-6'>
         <div className='text-white lg:w-1/2 flex flex-col gap-10 justify-between h-full'>
           <div className='flex flex-col lg:flex-row items-start gap-4'>
             {foodDetails?.images[0]?.src && <img src={foodDetails.images[0].src} alt={foodDetails.name} className='w-full lg:w-60 h-60 object-bottom object-cover mt-4 rounded-xl'/>}
