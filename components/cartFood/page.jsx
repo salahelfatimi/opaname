@@ -21,6 +21,7 @@ export default function CartFood({id}) {
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
     };
+    
     // delete food from local storage
     const removeFoodFromLocalStorage = (idToRemove) => {
         const confirmDelete = window.confirm("Êtes-vous sûr de vouloir supprimer cet article ?");
@@ -28,22 +29,22 @@ export default function CartFood({id}) {
             let savedFoods = JSON.parse(localStorage.getItem("SelectFood")) || [];
             savedFoods = savedFoods.filter((food) => food.id !== idToRemove);
             localStorage.setItem("SelectFood", JSON.stringify(savedFoods));
-            setSavedFoods(savedFoods); // Update state to reflect the removal
+            setSavedFoods(savedFoods);
         }
         
     };
+
     // Function to strip HTML tags from a string
     const stripHtmlTags = (html) => {
         const doc = new DOMParser().parseFromString(html, "text/html");
         return doc.body.textContent || "";
     };
+
     // Create WhatsApp message
     const createWhatsAppMessage = () => {
         let message = `*Résumé de votre commande :*\n\n`;
-    
         savedFoods.forEach((food) => {
             message += `*Nom :* ${food.name}\n`;
-            // Strip HTML tags from description
             const descriptionText = stripHtmlTags(food.description);
             message += `*Description :* ${descriptionText}`;
             message += `*Prix :* ${food.priceTotal} DH\n`;
@@ -51,27 +52,19 @@ export default function CartFood({id}) {
             if (food.optionSelect && food.optionSelect.length > 0) {
                 message += `*Options :* ${food.optionSelect.map(option => option.name).join(', ')}\n`;
             }
-    
-            // Add a separator line after each item
             message += `------------------------\n`;
         });
-    
-        // Add the total price and the thank you message at the end
         message += `*Total :* ${totalPrice} DH\n\n`;
         message += `Merci pour votre commande !`;
-    
-        // URL encode the message
         return encodeURIComponent(message);
     };
 
     // WhatsApp link
     const sendToWhatsApp = () => {
         const message = createWhatsAppMessage();
-        const phoneNumber = '+212602314804'; // Replace with your phone number
+        const phoneNumber = '+212602314804'; 
         const url = `https://wa.me/${phoneNumber}?text=${message}`;
-         // Remove food items from localStorage after sending the message
         localStorage.removeItem("SelectFood");
-        // Update the savedFoods state to reflect the changes (empty the cart)
         setSavedFoods([]);
         toggleModal()
         window.open(url, '_blank');
@@ -79,7 +72,7 @@ export default function CartFood({id}) {
 
     return (
         <div>
-        <div onClick={toggleModal} className="fixed bottom-4 right-10 left-10 text-sm lg:text-2xl bg-primary p-4 shadow-lg z-40 flex flex-row justify-center text-white font-bold gap-1 items-center rounded-xl cursor-pointer">
+        <div onClick={toggleModal} className="fixed bottom-4 right-10 left-10 text-sm lg:text-xl bg-primary hover:bg-secondary border-2 border-primary hover:text-primary duration-700 font-bold p-4 shadow-lg z-40 flex flex-row justify-center text-white  gap-1 items-center rounded-xl cursor-pointer">
             <h2>Résumé de commande</h2>
             <p>{savedFoods.length} articles - {totalPrice} DH</p>
         </div>
