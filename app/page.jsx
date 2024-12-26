@@ -41,13 +41,20 @@ export async function generateMetadata() {
 }
 export default function Home() {
   return (
-    <div className=" relative h-[80vh] md:h-[92vh]    overflow-hidden flex flex-col  justify-between  bg-secondary py-10">
-        <div className="flex z-10 gap-2 items-center justify-center ">
-          <img src="/logo.png" alt="French O'Paname" title="French O'Paname"  className="w-16 object-cover" />
-          <h1 className=" text-2xl font-bold text-white">French O'Paname</h1>
-        </div>
-
-       
+    <div className=" relative h-[100vh]    overflow-hidden flex flex-col  justify-between  bg-secondary ">
+      <div className=" absolute z-20 inset-0 bg-black opacity-30"></div>
+      <video
+        width="100%"
+        height="100%"
+        autoPlay
+        loop
+        playsInline 
+        muted
+        className="w-screen h-[100vh] object-cover"
+        >
+        <source src="/bgvideo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
         <div>
           <div className="fixed bottom-0 z-50 left-0 right-0 flex flex-col-reverse lg:flex-row w-full  ">
             <img src="/homePage/commandez.png" alt="" className="absolute invisible lg:visible -top-20 w-40 right-20 object-cover" />
