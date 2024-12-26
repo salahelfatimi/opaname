@@ -10,6 +10,7 @@ export default function Page(){
             <div className=" flex flex-col items-center justify-center gap-4 ">
                 <h2 className="uppercase font-black text-2xl lg:text-6xl text-white text-center">Nos Délicieuses <span className=" text-primary">food </span> </h2>
                 <FoodCarousel/>
+                <Link href={'/food/menu-food'} className=' bg-primary border-4 border-primary hover:bg-secondary hover:text-primary duration-700 w-fit py-2 px-5 text-white font-bold rounded-full text-xl'>Explorez notre Menu 🍽️</Link>
             </div>
             <div className="flex flex-col">
                 <div className=" flex flex-col-reverse lg:flex-row gap-10 w-full items-center justify-center ">
