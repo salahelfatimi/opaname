@@ -1,3 +1,4 @@
+import Footer from "@/components/footer";
 import Navbar from "./components/navbar";
 
 export async function generateMetadata() {
@@ -39,6 +40,7 @@ export default function PizzeriaLayout({ children }) {
           <div className={`bg-secondary pt-20`}>
             {children}
           </div>
+          <Footer/>
         </>
         )
   }

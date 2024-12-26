@@ -41,7 +41,7 @@ export async function generateMetadata() {
 }
 export default function Home() {
   return (
-    <div className=" relative h-[80vh] md:h-[92vh]   overflow-hidden flex flex-col  justify-between  bg-secondary py-10">
+    <div className=" relative h-[80vh] md:h-[92vh]    overflow-hidden flex flex-col  justify-between  bg-secondary py-10">
         <div className="flex z-10 gap-2 items-center justify-center ">
           <img src="/logo.png" alt="French O'Paname" title="French O'Paname"  className="w-16 object-cover" />
           <h1 className=" text-2xl font-bold text-white">French O'Paname</h1>

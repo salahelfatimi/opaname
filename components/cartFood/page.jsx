@@ -21,7 +21,7 @@ export default function CartFood({id}) {
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
     };
-    
+
     // delete food from local storage
     const removeFoodFromLocalStorage = (idToRemove) => {
         const confirmDelete = window.confirm("Êtes-vous sûr de vouloir supprimer cet article ?");
@@ -102,7 +102,7 @@ export default function CartFood({id}) {
                                     <span className=" text-sm" key={idx}> {option.name} ,</span>
                                     ))}
                                 </div>
-                                <button onClick={() => removeFoodFromLocalStorage(food.id)} className="bg-red-500 w-full  text-white p-2 rounded">
+                                <button onClick={() => removeFoodFromLocalStorage(food.id)} className="bg-red-500 w-full hover:bg-secondary border-2 hover:text-red-500 duration-700 font-bold border-red-500  text-white p-2 rounded">
                                     Supprimer
                                 </button>
                             </div>

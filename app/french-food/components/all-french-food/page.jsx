@@ -103,7 +103,7 @@ export default function FrenchFood({ type, house, min_Prix, max_Prix }) {
             <CartFood id={idClicked}/>
             {idClicked && <DetailsFood id={idClicked} onClose={handleDetailsClose} />}
           </div>
-          <div className="px-2 grid md:grid-cols-2 grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-10">
+          <div className="px-2 grid md:grid-cols-2 grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-4">
             {FrenchFood.map((food, index) => (
               <FoodCard key={index} food={food} />
             ))}
