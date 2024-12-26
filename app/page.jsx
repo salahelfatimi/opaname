@@ -64,7 +64,7 @@ export default function Home() {
             <img src="/homePage/offres.png" alt="" className="absolute invisible lg:visible -top-20 w-40 left-20 object-cover" />
 
             <Link href={'/pizzeria'} className="bg-primary  w-full uppercase text-lg lg:text-3xl font-black  py-3 hover:bg-white hover:text-primary  border-4  border-primary duration-500 px-8 text-center text-white"> pizzeria 🍕</Link>
-            <Link href={'/french-food'} className="bg-secondary  w-full uppercase text-lg lg:text-3xl font-black  py-3 hover:bg-white hover:text-primary  border-4  border-primary duration-500 px-8 text-center text-white ">French Food 🥙</Link>
+            <Link href={'/food'} className="bg-secondary  w-full uppercase text-lg lg:text-3xl font-black  py-3 hover:bg-white hover:text-primary  border-4  border-primary duration-500 px-8 text-center text-white ">French Food 🥙</Link>
           </div>
         </div>
        <LoadingPage/>

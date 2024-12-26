@@ -8,13 +8,13 @@ export default function Page(){
        <div className=" flex flex-col gap-10 ">
             <FrenchFood/>
             <div className=" flex flex-col items-center justify-center gap-4 ">
-                <h2 className="uppercase font-black text-2xl lg:text-6xl text-white text-center">Nos Délicieuses <span className=" text-primary">french food </span> </h2>
+                <h2 className="uppercase font-black text-2xl lg:text-6xl text-white text-center">Nos Délicieuses <span className=" text-primary">food </span> </h2>
                 <FoodCarousel/>
             </div>
             <div className="flex flex-col">
                 <div className=" flex flex-col-reverse lg:flex-row gap-10 w-full items-center justify-center ">
                     <div className=" lg:w-1/2 flex flex-col  justify-center gap-4 lg:p-20 w-full  p-10 bg-primary lg:rounded-r-3xl">
-                        <h2 className=" text-xl text-center lg:text-4xl text-white font-black capitalize">Nos <span className=" text-secondary">french food</span> Délicieux </h2>
+                        <h2 className=" text-xl text-center lg:text-4xl text-white font-black capitalize">Nos <span className=" text-secondary">food</span> Délicieux </h2>
                         <p className=" text-xl text-center text-white font-medium">
                             Découvrez notre sélection irrésistible de kebabs, préparés avec des 
                             ingrédients frais et des recettes authentiques. Chaque kebab est un 

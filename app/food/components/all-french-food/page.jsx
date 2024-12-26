@@ -110,9 +110,9 @@ export default function FrenchFood({ type, house, min_Prix, max_Prix }) {
           </div>
         </>
       )}
-      {loading && !initialLoading && <div className="flex justify-center my-6 text-gray-500 text-xl font-medium flex-col items-center">Chargement plus French Food...</div>}
+      {loading && !initialLoading && <div className="flex justify-center my-6 text-gray-500 text-xl font-medium flex-col items-center">Chargement plus Food...</div>}
       {error && <div className="flex justify-center mt-6 text-red-500">{error}</div>}
-      {allLoaded && !loading && <div className="flex justify-center my-6 text-gray-500 text-lg font-medium animate-pulse flex-col items-center"><Sandwich size={30} /> <span>Tous les French Food ont été chargés.</span></div>}
+      {allLoaded && !loading && <div className="flex justify-center my-6 text-gray-500 text-lg font-medium animate-pulse flex-col items-center"><Sandwich size={30} /> <span>Tous les Food ont été chargés.</span></div>}
     </div>
   );
 }

@@ -40,7 +40,7 @@ export default function Navbar(){
                                 ))
                             }
                         </div>
-                        <Link href={'/french-food/menu-french-food'} className=" bg-primary py-2 px-3 hover:bg-secondary border border-primary hover:text-prborder-primary duration-700 text-sm font-bold text-white rounded">Commandez maintenant</Link>
+                        <Link href={'/food/menu-food'} className=" bg-primary py-2 px-3 hover:bg-secondary border border-primary hover:text-prborder-primary duration-700 text-sm font-bold text-white rounded">Commandez maintenant</Link>
                     </div>
                     <Menu size={40} className="flex  lg:hidden bg-secondary p-1 stroke-white"/>
                 </div>
