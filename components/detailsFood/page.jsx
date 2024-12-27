@@ -108,7 +108,7 @@ export default function DetailsFood({ id, onClose }) {
               {quantity}
               <Plus className='cursor-pointer stroke-white bg-primary  hover:bg-secondary border-2 border-primary hover:stroke-primary duration-700 rounded-full p-2' size={45} onClick={() => setQuantity(quantity + 1)} />
             </div>
-              <button disabled={optionSelect.length < 3} onClick={saveFoodToLocalStorage} className={`bg-primary w-full py-3 rounded-full font-bold text-xl duration-700 border-2 border-primary  ${optionSelect.length < 3 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-secondary  hover:text-primary '}`} > {optionSelect.length < 3 ? "Il faut sélectionner 3 options ou plus" : `Ajouter ${priceTotal * quantity} DH`} </button>
+              <button disabled={optionSelect.length < 3 && foodDetails?.attributes.length > 0} onClick={saveFoodToLocalStorage} className={`bg-primary w-full py-3 rounded-full font-bold text-xl duration-700 border-2 border-primary  ${optionSelect.length < 3  && foodDetails?.attributes.length>0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-secondary  hover:text-primary '}`} > {optionSelect.length < 3  && foodDetails?.attributes.length > 0 ? "Il faut sélectionner 3 options ou plus" : `Ajouter ${priceTotal * quantity} DH`} </button>
             </div>
         </div>
         <div className='text-white flex lg:w-1/2 flex-col items-start gap-8 lg:overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-primary scrollbar-track-secondary '>

@@ -6,10 +6,8 @@ import { Plus, Sandwich } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
-
-
-export default function FrenchFood({ id,type }) {
-  const [FrenchFood, setFrenchFood] = useState([]);
+export default function Pizzeria({ id,type }) {
+  const [Pizzeria, setPizzeria] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -21,14 +19,14 @@ export default function FrenchFood({ id,type }) {
   const fetchFrenchFood = useCallback(async (page, isInitialFetch = false) => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/restApiFood?page=${page}&perPage=15&type=${16}`);
+      const response = await fetch(`/api/restApiFood?page=${page}&perPage=15&type=${25}`);
       if (!response.ok) throw new Error("Failed to fetch data");
       const newFrenchFood = await response.json();
       if (isInitialFetch) {
-        setFrenchFood(newFrenchFood);
+        setPizzeria(newFrenchFood);
         setInitialLoading(false);
       } else {
-        setFrenchFood((prev) => [...prev, ...newFrenchFood]);
+        setPizzeria((prev) => [...prev, ...newFrenchFood]);
       }
       if (newFrenchFood.length < 10) {
         setAllLoaded(true);
@@ -43,7 +41,7 @@ export default function FrenchFood({ id,type }) {
   }, [type]);
 
   useEffect(() => {
-    setFrenchFood([]);
+    setPizzeria([]);
     setPage(1);
     setAllLoaded(false);
     setInitialLoading(true);
@@ -64,6 +62,7 @@ export default function FrenchFood({ id,type }) {
     setIdNotFound(false);
   };
 
+
   return (
     <div>
       {initialLoading ? (
@@ -75,14 +74,13 @@ export default function FrenchFood({ id,type }) {
             {idClicked  && <DetailsFood id={idClicked} onClose={handleDetailsClose} />}
           </div>
           <div className="px-2 grid md:grid-cols-2 grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-4">
-            {FrenchFood.map((food, index) => (
+            {Pizzeria.map((food, index) => (
                 <div key={index} onClick={() => setIdClicked(food.id)} className="flex flex-col justify-between gap-2 border-2 border-primary h-44 rounded-xl p-4 group cursor-pointer">
                   <div className="flex flex-row gap-4 h-full w-full">
                     {food?.images[0] ? (
                       <Image
                         src={food?.images[0]?.src}
                         alt={food?.name}
-                        title={food?.name}
                         className="max-h-36 max-w-36 h-full w-full object-cover object-bottom rounded-xl transform transition-transform duration-300 group-hover:scale-110"
                         width={500}
                         height={500}

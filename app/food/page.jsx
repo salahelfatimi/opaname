@@ -3,13 +3,52 @@ import FrenchFood from "./components/frenchFoodHome";
 import FilterButton from "./components/filterButton";
 import Link from "next/link";
 
+export async function generateMetadata() {
+    return {
+        title: "Nos Délicieux Plats - French O'Paname",
+        description: "Explorez notre menu exclusif, mettant en vedette des plats succulents et des saveurs authentiques pour ravir vos papilles.",
+        keywords: ["plats", "French O'Paname", "restaurant", "Marrakech", "cuisine délicieuse"],
+        alternates: {
+            canonical: "/food",
+        },
+        openGraph: {
+            title: "French O'Paname | Nos Délicieux Plats - Food",
+            description: "Explorez notre menu exclusif, mettant en vedette des plats succulents et des saveurs authentiques pour ravir vos papilles.",
+            url: `${process.env.NEXT_PUBLIC_BASE_URL}/food`,
+            siteName: "French O'Paname",
+            images: [
+                {
+                    url: `/food/opengraph-image.jpg`,
+                    secureUrl: `/food/opengraph-image.jpg`,
+                    width: 1200,
+                    height: 630,
+                    alt: "Nos Délicieux Plats - French O'Paname",
+                }
+            ],
+            type: "website",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: "French O'Paname | Nos Délicieux Plats - Food",
+            description: "Explorez notre menu exclusif, mettant en vedette des plats succulents et des saveurs authentiques pour ravir vos papilles.",
+            images: [
+                {
+                    url: `/food/opengraph-image.jpg`,
+                    alt: "Nos Délicieux Plats - French O'Paname",
+                }
+            ],
+        },
+    };
+}
+
+
 export default function Page(){
     return(
        <div className=" flex flex-col gap-10 ">
             <FrenchFood/>
             <div className=" flex flex-col items-center justify-center gap-4 ">
                 <h2 className="uppercase font-black text-2xl lg:text-6xl text-white text-center">Nos Délicieuses <span className=" text-primary">food </span> </h2>
-                <FoodCarousel/>
+                <FoodCarousel type={16}/>
             </div>
             <div className="flex flex-col">
                 <div className=" flex flex-col-reverse lg:flex-row gap-10 w-full items-center justify-center ">

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { ImageOff } from 'lucide-react';
 import Loading from '@/app/loading';
 
-export default function FoodCarousel() {
+export default function FoodCarousel({type}) {
   const [foodScroll, setFoodScroll] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Add loading state
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
@@ -16,7 +16,7 @@ export default function FoodCarousel() {
   useEffect(() => {
     const fetchFrenchFood = async () => {
       try {
-        const response = await fetch(`/api/FrenchFoodRestApi/frenchFood?page=1&perPage=14`);
+        const response = await fetch(`/api/restApiFood?page=1&perPage=10&type=${type}`);
         if (!response.ok) throw new Error("Failed to fetch data");
         const opanameFood = await response.json();
         setFoodScroll(opanameFood);
@@ -41,7 +41,7 @@ export default function FoodCarousel() {
           {foodScroll.map((food, index) => (
             <Link href={`/food/menu-food?id=${food.id}`}  key={index} className="pl-10 relative flex flex-row items-center justify-center gap-4 flex-shrink-0 group ">
                 <div className=' relative'>
-                {food?.images[0] ? (<img src={food?.images[0]?.src} alt={food.name} className="w-44 bg-primary p-1 object-cover h-44 rounded-full group-hover:scale-105 duration-700"/> ) 
+                {food?.images[0] ? (<img src={food?.images[0]?.src} alt={food.name} title={food.name} className="w-44 bg-primary p-1 object-cover h-44 rounded-full group-hover:scale-105 duration-700"/> ) 
                 : (
                   <div className=" h-44 rounded-full w-44 bg-primary flex items-center justify-center"><ImageOff size={70} className=' stroke-white' /></div>
                 )}
@@ -55,8 +55,6 @@ export default function FoodCarousel() {
                   </h2>
                   <p className='w-64 text-white font-medium' dangerouslySetInnerHTML={{ __html: food?.description }}></p>
                 </div>
-                   
-              
             </Link>
           ))}
         </div>

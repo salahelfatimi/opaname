@@ -6,10 +6,24 @@ const nunito = Nunito({weight:["200","300","400","500","600","700","800","900","
 
 
 
-export const metadata = {
-  title: {  template: "Opaname Marrakech | %s " },
-  description: "Découvrez Opaname Marrakech & Casablanca, votre destination pour des pizzas naan, kebabs, tikka, et merguez. Commandez facilement sur notre site et profitez de la livraison rapide via Glovo. Ouvert de midi à 5h du matin. Commandez dès maintenant !",
-};
+export async function generateMetadata() {
+  return {
+    title: "French O'Paname & Livraison Rapide",
+    description: "Découvrez les meilleures pizzas naan chez Opaname Marrakech & Casablanca. Savourez des pizzas fraîches, délicieuses et livrées rapidement via Glovo. Ouvert de midi à 5h du matin. Commandez dès maintenant !",
+    keywords: [
+      "Pizza naan Marrakech", 
+      "Pizza naan Casablanca", 
+      "Livraison pizza Marrakech", 
+      "Livraison pizza Casablanca", 
+      "Pizza fraîche Opaname", 
+      "Fast-food Marrakech", 
+      "Fast-food Casablanca", 
+      "Livraison Glovo pizza", 
+      "Opaname pizza menu"
+    ],
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}`),
+  };
+}
 
 export default function RootLayout({ children }) {
   return (
