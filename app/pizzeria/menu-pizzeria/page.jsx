@@ -3,54 +3,41 @@ import FilterButton from "../components/filterButton";
 
 export async function generateMetadata() {
     return {
-      title: "Menu Pizzeria - Découvrez Nos Pizzas Délicieuses",
-      description: "Explorez le menu pizzeria d'Opaname à Marrakech et Casablanca. Savourez nos pizzas naan fraîches et nos recettes uniques, livrées rapidement chez vous. Commandez maintenant via Glovo !",
-      keywords: [
-        "Menu pizzeria Marrakech", 
-        "Menu pizzeria Casablanca", 
-        "Pizza naan menu", 
-        "Pizzas fraîches Opaname", 
-        "Livraison pizza Marrakech", 
-        "Livraison pizza Casablanca", 
-        "Fast-food menu Marrakech", 
-        "Fast-food menu Casablanca"
-      ],
-      alternates: {
-        canonical: "/menu-pizzeria",
-      },
-      openGraph: {
-        title: "Opaname | Menu Pizzeria - Découvrez Nos Pizzas Délicieuses",
-        description: "Explorez le menu pizzeria d'Opaname à Marrakech et Casablanca. Savourez nos pizzas naan fraîches et nos recettes uniques, livrées rapidement chez vous. Commandez maintenant via Glovo !",
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/menu-pizzeria`,
-        robots: {
-          index: true,
-          follow: true,
+        title: "Menu pizzeria - Découvrez Nos Délicieux pizzeria",
+        description: "Découvrez les meilleures  pizzeria chez French O'Paname  . Savourez des pizzeria fraîches, délicieuses et livrées rapidement . Ouvert de midi à 5h du matin. Commandez dès maintenant !",
+        keywords: ["kebabs", "French O'Paname", "nourriture", "Marrakech", "nourriture délicieuse"],
+        alternates: {
+            canonical: "/pizzeria/menu-pizzeria",
         },
-        siteName: "Opaname",
-        images: [
-          {
-            url: `/opengraph-image.jpg`,
-            secureUrl: `/opengraph-image.jpg`,
-            width: 1200,
-            height: 630,
-            alt: "Menu Pizzeria - Découvrez Nos Pizzas Délicieuses",
-          }
-        ],
-        type: "website",
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: "Opaname | Menu Pizzeria - Découvrez Nos Pizzas Délicieuses",
-        description: "Explorez le menu pizzeria d'Opaname à Marrakech et Casablanca. Savourez nos pizzas naan fraîches et nos recettes uniques, livrées rapidement chez vous. Commandez maintenant via Glovo !",
-        images: [
-          {
-            url: `/opengraph-image.jpg`,
-            alt: "Menu Pizzeria - Découvrez Nos Pizzas Délicieuses",
-          }
-        ],
-      },
+        openGraph: {
+            title: "Menu pizzeria - Découvrez Nos Délicieux pizzeria",
+            description: "Découvrez les meilleures  pizzeria chez French O'Paname  . Savourez des pizzeria fraîches, délicieuses et livrées rapidement . Ouvert de midi à 5h du matin. Commandez dès maintenant !",
+            url: `${process.env.NEXT_PUBLIC_BASE_URL}/pizzeria/menu-pizzeria`,
+            siteName: "French O'Paname",
+            images: [
+                {
+                    url: `${process.env.NEXT_PUBLIC_BASE_URL}/pizzeria/opengraph-image.jpg`,
+                    secureUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/pizzeria/opengraph-image.jpg`,
+                    width: 1200,
+                    height: 630,
+                    alt: "Nos Délicieux Plats - French O'Paname",
+                }
+            ],
+            type: "website",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: "French O'Paname | Nos Délicieux Plats - French O'Paname",
+            description: "Découvrez notre sélection irrésistible de kebabs, préparée avec des ingrédients frais et des recettes authentiques.",
+            images: [
+                {
+                    url: `${process.env.NEXT_PUBLIC_BASE_URL}/pizzeria/opengraph-image.jpg`,
+                    alt: "Nos Délicieux Plats - French O'Paname",
+                }
+            ],
+        },
     };
-  }
+}
   
 export default async function MenuPizzeria({ searchParams }){
     const { id } = await searchParams;

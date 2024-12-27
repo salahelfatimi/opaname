@@ -2,16 +2,16 @@ import FrenchFood from "../components/all-french-food/page";
 
 export async function generateMetadata() {
     return {
-        title: "Menu Food - French O'Paname",
-        description: "Découvrez notre sélection irrésistible de kebabs, préparée avec des ingrédients frais et des recettes authentiques.",
+        title: "Menu Food - Découvrez Nos Délicieux Food",
+        description: "Découvrez les meilleures  Food chez French O'Paname  . Savourez des Food fraîches, délicieuses et livrées rapidement . Ouvert de midi à 5h du matin. Commandez dès maintenant !",
         keywords: ["kebabs", "French O'Paname", "nourriture", "Marrakech", "nourriture délicieuse"],
         alternates: {
-            canonical: "/menu-food",
+            canonical: "/food/menu-food",
         },
         openGraph: {
-            title: "French O'Paname | Nos Délicieux Plats - French O'Paname",
-            description: "Découvrez notre sélection irrésistible de kebabs, préparée avec des ingrédients frais et des recettes authentiques.",
-            url: `${process.env.NEXT_PUBLIC_BASE_URL}/menu-food`,
+            title: "Menu Food - Découvrez Nos Délicieux Food",
+            description: "Découvrez les meilleures  Food chez French O'Paname  . Savourez des Food fraîches, délicieuses et livrées rapidement . Ouvert de midi à 5h du matin. Commandez dès maintenant !",
+            url: `${process.env.NEXT_PUBLIC_BASE_URL}/food/menu-food`,
             siteName: "French O'Paname",
             images: [
                 {

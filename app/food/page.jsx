@@ -5,15 +5,15 @@ import Link from "next/link";
 
 export async function generateMetadata() {
     return {
-        title: "Nos Délicieux Plats - French O'Paname",
-        description: "Explorez notre menu exclusif, mettant en vedette des plats succulents et des saveurs authentiques pour ravir vos papilles.",
+        title: "Nos Délicieux Food ",
+        description: "Découvrez les meilleures  Food chez French O'Paname  . Savourez des Food fraîches, délicieuses et livrées rapidement . Ouvert de midi à 5h du matin. Commandez dès maintenant !",
         keywords: ["plats", "French O'Paname", "restaurant", "Marrakech", "cuisine délicieuse"],
         alternates: {
             canonical: "/food",
         },
         openGraph: {
-            title: "French O'Paname | Nos Délicieux Plats - Food",
-            description: "Explorez notre menu exclusif, mettant en vedette des plats succulents et des saveurs authentiques pour ravir vos papilles.",
+            title: "Nos Délicieux Food - French O'Paname",
+            description: "Découvrez les meilleures  Food chez French O'Paname  . Savourez des Food fraîches, délicieuses et livrées rapidement . Ouvert de midi à 5h du matin. Commandez dès maintenant !",
             url: `${process.env.NEXT_PUBLIC_BASE_URL}/food`,
             siteName: "French O'Paname",
             images: [

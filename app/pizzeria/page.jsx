@@ -3,6 +3,45 @@ import PizzeriaHome from "./components/pizzeriaHome";
 import FilterButton from "./components/filterButton";
 import Link from "next/link";
 
+export async function generateMetadata() {
+    return {
+        title: "Nos Délicieux Pizzeria ",
+        description: "Découvrez les meilleures  pizzeria chez French O'Paname  . Savourez des pizzeria fraîches, délicieuses et livrées rapidement . Ouvert de midi à 5h du matin. Commandez dès maintenant !",
+        keywords: ["Pizzeria", "French O'Paname", "restaurant", "Marrakech", "cuisine délicieuse"],
+        alternates: {
+            canonical: "/pizzeria",
+        },
+        openGraph: {
+            title: "Nos Délicieux Pizzeria - French O'Paname",
+            description: "Découvrez les meilleures  pizzeria chez French O'Paname  . Savourez des pizzeria fraîches, délicieuses et livrées rapidement . Ouvert de midi à 5h du matin. Commandez dès maintenant !",
+            url: `${process.env.NEXT_PUBLIC_BASE_URL}/pizzeria`,
+            siteName: "French O'Paname",
+            images: [
+                {
+                    url: `/pizzeria/opengraph-image.jpg`,
+                    secureUrl: `/pizzeria/opengraph-image.jpg`,
+                    width: 1200,
+                    height: 630,
+                    alt: "Nos Délicieux Plats - French O'Paname",
+                }
+            ],
+            type: "website",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: "French O'Paname | Nos Délicieux Plats - pizzeria",
+            description: "Explorez notre menu exclusif, mettant en vedette des plats succulents et des saveurs authentiques pour ravir vos papilles.",
+            images: [
+                {
+                    url: `/pizzeria/opengraph-image.jpg`,
+                    alt: "Nos Délicieux Plats - French O'Paname",
+                }
+            ],
+        },
+    };
+}
+
+
 export default function Page(){
     return(
        <div className=" flex flex-col gap-10 ">
