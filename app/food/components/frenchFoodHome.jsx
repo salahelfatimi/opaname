@@ -33,7 +33,7 @@ export default function FrenchFood(){
         </Link>
         <div className="relative">
           <button onClick={() => setOpen(!open)} className="flex w-80 items-center justify-center gap-2 bg-secondary text-white text-xl font-black py-3 px-8 rounded-full border-4 border-primary hover:bg-secondary hover:border-primary duration-700">
-            Commandez 🍕 <ChevronDown className={`transition-transform duration-700 ${open ? 'rotate-180' : 'rotate-0'}`}/>
+            Commandez 🥙 <ChevronDown className={`transition-transform duration-700 ${open ? 'rotate-180' : 'rotate-0'}`}/>
           </button>
           <div className={`absolute top-16 left-0 right-0 bg-primary text-white font-bold rounded-lg p-4 flex flex-col gap-3 items-center transition-opacity duration-300 ${open ? 'opacity-100' : 'opacity-0 pointer-events-none'} w-80`}>
             <Link href="/food/menu-food" className="w-full text-center bg-primary hover:bg-secondary py-3 px-4 rounded-full duration-500">
