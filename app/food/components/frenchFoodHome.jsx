@@ -23,7 +23,7 @@ export default function FrenchFood(){
       <div className="relative w-full h-screen">
       <div className="absolute inset-0 bg-black opacity-30 z-10"></div>
       <video className="w-full h-full object-cover" title="French O'Paname" autoPlay  loop playsInline muted>
-        <source src="/bgvideo.mp4" type="video/mp4" />
+        <source src="food/bgVideo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     
@@ -46,6 +46,6 @@ export default function FrenchFood(){
           </div>
         </div>
       </div>
-    </div>
+      </div>
     )
 }
