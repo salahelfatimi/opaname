@@ -72,7 +72,7 @@ export default function FrenchFood({ id,category }) {
             <CartFood id={idClicked}/>
             {idClicked  && <DetailsFood id={idClicked} onClose={handleDetailsClose} />}
           </div>
-          <div className="px-2 grid md:grid-cols-2 grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-4">
+          <div className="px-2 grid md:grid-cols-2 grid-cols-1 xl:grid-cols-2 gap-4">
             {FrenchFood.map((food, index) => (
                 <div key={index} onClick={() => setIdClicked(food.id)} className="flex flex-col justify-between gap-2 border-4 border-primary h-44 rounded-xl p-4 group cursor-pointer">
                   <div className="flex flex-row gap-4 h-full w-full">
@@ -90,14 +90,15 @@ export default function FrenchFood({ id,category }) {
                     ) : (
                       <div className="hidden"></div>
                     )}
-                    <div className="flex flex-col justify-between items-start h-full w-full">
-                      <div>
-                        <h2 className="text-primary font-black text-xl uppercase">{food.name}</h2>
+                    <div className="flex flex-col justify-between items-start h-full w-full ">
+                      <div className=" ">
+                        <h2 className="text-primary font-bold text-xl uppercase">{food.name}</h2>
+                        <h2 className=" uppercase text-white font-medium text-lg"><span className="text-primary font-bold text-xl">Prix : </span>{food.price} DH</h2>
                         <div className="text-white font-medium text-sm capitalize group-hover:underline underline-offset-2" dangerouslySetInnerHTML={{ __html: food?.description }}></div>
                       </div>
                       <div className="w-full flex justify-end">
                         <div className="bg-primary p-1 rounded-full flex justify-end rotate-180 group-hover:rotate-0 duration-700">
-                          <Plus size={30} className="stroke-white" />
+                          <Plus size={25} className="stroke-white" />
                         </div>
                       </div>
                     </div>
