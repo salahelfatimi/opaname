@@ -6,7 +6,7 @@ import { Plus, Sandwich } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
-export default function Pizzeria({ id,type }) {
+export default function Pizzeria({ id,category }) {
   const [Pizzeria, setPizzeria] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ export default function Pizzeria({ id,type }) {
   const fetchFrenchFood = useCallback(async (page, isInitialFetch = false) => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/restApiFood?page=${page}&perPage=15&category=${25}`);
+      const response = await fetch(`/api/restApiFood?page=${page}&perPage=10&category=${category}`);
       if (!response.ok) throw new Error("Failed to fetch data");
       const newFrenchFood = await response.json();
       if (isInitialFetch) {
@@ -37,7 +37,7 @@ export default function Pizzeria({ id,type }) {
     } finally {
       setLoading(false);
     }
-  }, [type]);
+  }, [category]);
 
   useEffect(() => {
     setPizzeria([]);
@@ -45,7 +45,7 @@ export default function Pizzeria({ id,type }) {
     setAllLoaded(false);
     setInitialLoading(true);
     fetchFrenchFood(1, true);
-  }, [fetchFrenchFood, type]);
+  }, [fetchFrenchFood, category]);
 
   useEffect(() => {
     const handleScroll = () => {

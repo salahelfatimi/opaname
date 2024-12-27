@@ -41,7 +41,7 @@ export async function generateMetadata() {
 }
   
 export default async function MenuPizzeria({ searchParams }){
-    const { id } = await searchParams;
+    const { id,category } = await searchParams;
     return(
         <>
             <NavbarMenu/>
@@ -49,7 +49,7 @@ export default async function MenuPizzeria({ searchParams }){
                 <h2 className=" uppercase text-center font-black text-3xl lg:text-6xl text-white">🍕 Pizzeria Deliziosa - Menu</h2>
                 {/* <FilterButton/> */}
                 <div className="container ">
-                    <Pizzeria id={id}/>
+                    <Pizzeria id={id} category={category?category:25}/>
                 </div>
             </div>
         </>

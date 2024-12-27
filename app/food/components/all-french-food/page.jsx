@@ -20,7 +20,7 @@ export default function FrenchFood({ id,category }) {
   const fetchFrenchFood = useCallback(async (page, isInitialFetch = false) => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/restApiFood?page=${page}&perPage=15&category=${category}`);
+      const response = await fetch(`/api/restApiFood?page=${page}&perPage=10&category=${category}`);
       if (!response.ok) throw new Error("Failed to fetch data");
       const newFrenchFood = await response.json();
       if (isInitialFetch) {
