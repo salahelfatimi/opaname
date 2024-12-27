@@ -1,0 +1,3 @@
+User-Agent: *
+Allow: *
+Sitemap:https://frenchopaname.vercel.app/sitemap.xml

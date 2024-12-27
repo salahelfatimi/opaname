@@ -1,5 +1,4 @@
 import Pizzeria from "../components/all-pizzeria/page";
-import FilterButton from "../components/filterButton";
 import NavbarMenu from "../components/navbarMenu";
 
 export async function generateMetadata() {
