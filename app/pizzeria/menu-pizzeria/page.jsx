@@ -1,5 +1,6 @@
 import Pizzeria from "../components/all-pizzeria/page";
 import FilterButton from "../components/filterButton";
+import NavbarMenu from "../components/navbarMenu";
 
 export async function generateMetadata() {
     return {
@@ -42,10 +43,15 @@ export async function generateMetadata() {
 export default async function MenuPizzeria({ searchParams }){
     const { id } = await searchParams;
     return(
-        <div className=" flex flex-col gap-10 items-center justify-center pt-28">
-            <h2 className=" uppercase text-center font-black text-3xl lg:text-6xl text-white">🍕 Pizzeria Deliziosa - Menu</h2>
-            {/* <FilterButton/> */}
-            <Pizzeria id={id}/>
-        </div>
+        <>
+            <NavbarMenu/>
+            <div className=" flex flex-col gap-10 items-center justify-center pt-56">
+                <h2 className=" uppercase text-center font-black text-3xl lg:text-6xl text-white">🍕 Pizzeria Deliziosa - Menu</h2>
+                {/* <FilterButton/> */}
+                <div className="container ">
+                    <Pizzeria id={id}/>
+                </div>
+            </div>
+        </>
     )
 }

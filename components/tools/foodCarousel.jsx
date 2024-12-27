@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { ImageOff } from 'lucide-react';
 import Loading from '@/app/loading';
 
-export default function FoodCarousel({type}) {
+export default function FoodCarousel({category}) {
   const [foodScroll, setFoodScroll] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Add loading state
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
@@ -16,7 +16,7 @@ export default function FoodCarousel({type}) {
   useEffect(() => {
     const fetchFrenchFood = async () => {
       try {
-        const response = await fetch(`/api/restApiFood?page=1&perPage=10&type=${type}`);
+        const response = await fetch(`/api/restApiFood?page=1&perPage=10&category=${category}`);
         if (!response.ok) throw new Error("Failed to fetch data");
         const opanameFood = await response.json();
         setFoodScroll(opanameFood);

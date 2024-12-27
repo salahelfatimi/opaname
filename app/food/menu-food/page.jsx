@@ -1,4 +1,6 @@
 import FrenchFood from "../components/all-french-food/page";
+import FilterButton from "../components/filterButton";
+import NavbarMenu from "../components/navbarMenu";
 
 export async function generateMetadata() {
     return {
@@ -37,15 +39,20 @@ export async function generateMetadata() {
         },
     };
 }
-
-
 export default async function MenuFood({ searchParams }){
-    const { id } = await searchParams;
+    const { id,category } = await searchParams;
     return(
-        <div className=" flex flex-col gap-10 items-center justify- pt-28  bg-secondary">
-            <h2 className=" uppercase text-center font-black text-xl lg:text-6xl text-white">food Deliziosa - Menu</h2>
-            {/* <FilterButton/> */}
-            <FrenchFood id={id}/>
-        </div>
+        <>
+            <NavbarMenu/>
+            <div className=" flex flex-col gap-10 items-center bg-secondary pt-56 ">
+                <div className=" flex flex-col w-full gap-10">
+                    <h2 className=" uppercase text-center font-black text-3xl lg:text-6xl text-white">food Deliziosa - Menu</h2>
+                    <div className="container ">
+                        <FrenchFood id={id} category={category?category:16}/>
+                    </div>
+                </div>
+            </div>
+        </>
+        
     )
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { Send, ShoppingBag, ShoppingBasket, X } from "lucide-react";
+import { Send, ShoppingBag, ShoppingBasket, ShoppingCart, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function CartFood({id}) {
@@ -72,7 +72,8 @@ export default function CartFood({id}) {
 
     return (
         <div>
-        <div onClick={toggleModal} className="fixed bottom-4 right-10 left-10 text-sm lg:text-xl bg-primary hover:bg-secondary border-2 border-primary hover:text-primary duration-700 font-bold p-4 shadow-lg z-40 flex flex-row justify-center text-white  gap-1 items-center rounded-xl cursor-pointer">
+        <div onClick={toggleModal} className="fixed bottom-4  right-10  text-sm lg:text-lg bg-primary hover:bg-secondary border-2 border-primary hover:text-primary duration-700 font-bold p-3 shadow-lg z-40 flex flex-row justify-center text-white  gap-1 items-center rounded-xl cursor-pointer">
+            <ShoppingCart size={30} />
             <h2>Résumé de commande</h2>
             <p>{savedFoods.length} articles - {totalPrice} DH</p>
         </div>
@@ -118,8 +119,6 @@ export default function CartFood({id}) {
                         <ShoppingBag size={30} /> Ajouter plus de produits 
                     </button>
                     </>
-                    
-                    
                     ):
                     <button onClick={toggleModal} className="w-11/12 flex gap-1 items-center justify-center md:w-1/2 py-4 font-bold text-sm lg:text-lg bg-primary text-white p-2">
                          <ShoppingBag size={30}  /> Ajoutez des produits à votre panier !

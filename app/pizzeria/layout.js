@@ -10,11 +10,9 @@ export const metadata= {
 export default function PizzeriaLayout({ children }) {
     return( 
         <>
-          <Navbar/>
-          <div className={`bg-[#1E1E1E] pt-20 min-h-screen`}>
+          <div className={`bg-[#1E1E1E]  min-h-screen`}>
             {children}
           </div>
-          <Footer/>
         </>
         )
   }

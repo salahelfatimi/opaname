@@ -14,12 +14,11 @@ export default function Pizzeria({ id,type }) {
   const [allLoaded, setAllLoaded] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true);
   const [idClicked, setIdClicked] = useState(id);
-  const [idNotFound, setIdNotFound] = useState(false);
 
   const fetchFrenchFood = useCallback(async (page, isInitialFetch = false) => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/restApiFood?page=${page}&perPage=15&type=${25}`);
+      const response = await fetch(`/api/restApiFood?page=${page}&perPage=15&category=${25}`);
       if (!response.ok) throw new Error("Failed to fetch data");
       const newFrenchFood = await response.json();
       if (isInitialFetch) {
@@ -59,7 +58,7 @@ export default function Pizzeria({ id,type }) {
 
   const handleDetailsClose = () => {
     setIdClicked(null);
-    setIdNotFound(false);
+
   };
 
 

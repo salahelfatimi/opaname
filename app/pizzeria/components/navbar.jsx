@@ -4,7 +4,7 @@ import Link from "next/link"
 export default function Navbar(){
     const itemNavbar=[
         {title:'Accueil',href:'/'},
-        {title:'French Food',href:'/food'},
+        {title:'Food',href:'/food'},
     ]
     return(
         <div className="fixed right-0 left-0 z-30">

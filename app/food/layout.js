@@ -11,11 +11,9 @@ export const metadata= {
 export default function PizzeriaLayout({ children }) {
     return( 
         <>
-          <Navbar/>
-          <div className={`bg-secondary min-h-screen pt-20`}>
+          <div className={`bg-secondary min-h-screen`}>
             {children}
           </div>
-          <Footer/>
         </>
         )
   }

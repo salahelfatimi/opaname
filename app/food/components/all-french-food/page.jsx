@@ -8,7 +8,7 @@ import { useCallback, useEffect, useState } from "react";
 
 
 
-export default function FrenchFood({ id,type }) {
+export default function FrenchFood({ id,category }) {
   const [FrenchFood, setFrenchFood] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -16,12 +16,11 @@ export default function FrenchFood({ id,type }) {
   const [allLoaded, setAllLoaded] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true);
   const [idClicked, setIdClicked] = useState(id);
-  const [idNotFound, setIdNotFound] = useState(false);
 
   const fetchFrenchFood = useCallback(async (page, isInitialFetch = false) => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/restApiFood?page=${page}&perPage=15&type=${16}`);
+      const response = await fetch(`/api/restApiFood?page=${page}&perPage=15&category=${category}`);
       if (!response.ok) throw new Error("Failed to fetch data");
       const newFrenchFood = await response.json();
       if (isInitialFetch) {
@@ -40,7 +39,7 @@ export default function FrenchFood({ id,type }) {
     } finally {
       setLoading(false);
     }
-  }, [type]);
+  }, [category]);
 
   useEffect(() => {
     setFrenchFood([]);
@@ -48,7 +47,7 @@ export default function FrenchFood({ id,type }) {
     setAllLoaded(false);
     setInitialLoading(true);
     fetchFrenchFood(1, true);
-  }, [fetchFrenchFood, type]);
+  }, [fetchFrenchFood,category]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +60,6 @@ export default function FrenchFood({ id,type }) {
 
   const handleDetailsClose = () => {
     setIdClicked(null);
-    setIdNotFound(false);
   };
 
   return (
@@ -76,7 +74,7 @@ export default function FrenchFood({ id,type }) {
           </div>
           <div className="px-2 grid md:grid-cols-2 grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-4">
             {FrenchFood.map((food, index) => (
-                <div key={index} onClick={() => setIdClicked(food.id)} className="flex flex-col justify-between gap-2 border-2 border-primary h-44 rounded-xl p-4 group cursor-pointer">
+                <div key={index} onClick={() => setIdClicked(food.id)} className="flex flex-col justify-between gap-2 border-4 border-primary h-44 rounded-xl p-4 group cursor-pointer">
                   <div className="flex flex-row gap-4 h-full w-full">
                     {food?.images[0] ? (
                       <Image

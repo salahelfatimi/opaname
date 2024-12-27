@@ -2,6 +2,8 @@ import FoodCarousel from "@/components/tools/foodCarousel";
 import PizzeriaHome from "./components/pizzeriaHome";
 import FilterButton from "./components/filterButton";
 import Link from "next/link";
+import Footer from "@/components/footer";
+import Navbar from "./components/navbar";
 
 export async function generateMetadata() {
     return {
@@ -44,11 +46,13 @@ export async function generateMetadata() {
 
 export default function Page(){
     return(
+        <>
+        <Navbar/>
        <div className=" flex flex-col gap-10 ">
             <PizzeriaHome/>
             <div className=" flex flex-col items-center justify-center gap-4 ">
                 <h2 className="uppercase font-black text-2xl lg:text-6xl text-white">Nos Délicieuses <span className=" text-primary">pizzeria</span> </h2>
-                <FoodCarousel type={25}/>
+                <FoodCarousel category={25}/>
             </div>
             <div className="flex flex-col">
                 <div className=" flex flex-col-reverse gap-10 lg:flex-row w-full items-center justify-center ">
@@ -91,7 +95,9 @@ export default function Page(){
             </div>
            
            
-     
-       </div>
+           
+        </div>
+        <Footer/>
+         </>
     )
 }
