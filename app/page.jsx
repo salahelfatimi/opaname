@@ -4,50 +4,40 @@ import LoadingPage from "@/components/tools/loading";
 
 export async function generateMetadata() {
   return {
-    title: "Pizza Naan & Livraison Rapide",
-    description: "Découvrez les meilleures pizzas naan chez Opaname Marrakech & Casablanca. Savourez des pizzas fraîches, délicieuses et livrées rapidement via Glovo. Ouvert de midi à 5h du matin. Commandez dès maintenant !",
-    keywords: [
-      "Pizza naan Marrakech", 
-      "Pizza naan Casablanca", 
-      "Livraison pizza Marrakech", 
-      "Livraison pizza Casablanca", 
-      "Pizza fraîche Opaname", 
-      "Fast-food Marrakech", 
-      "Fast-food Casablanca", 
-      "Livraison Glovo pizza", 
-      "Opaname pizza menu"
-    ],
+    title: "French O'Paname & Pizzeria & Food & Livraison Rapide",
+    description: "Découvrez les meilleures pizzas & Food chez French O'Paname  . Savourez des pizzas & Food fraîches, délicieuses et livrées rapidement . Ouvert de midi à 5h du matin. Commandez dès maintenant !",
+    keywords: ["French O'Paname Marrakech, French O'Paname Casablanca, Livraison plats français Marrakech, Livraison plats français Casablanca, Opaname menu français, Fast-food Marrakech, Fast-food Casablanca, Livraison Glovo cuisine française, Plats français Opaname"],      
     alternates: {
-      canonical: "/pizzeria",
+      canonical: "/",
     },
     openGraph: {
-      title: "Opaname Marrakech | Pizza Naan & Livraison Rapide",
-      description: "Découvrez les meilleures pizzas naan chez Opaname Marrakech & Casablanca. Savourez des pizzas fraîches, délicieuses et livrées rapidement via Glovo. Ouvert de midi à 5h du matin. Commandez dès maintenant !",
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/pizzeria`,
+      title: "French O'Paname & Pizzeria & Food & Livraison Rapide",
+      description: "Découvrez les meilleures pizzas & Food chez French O'Paname  . Savourez des pizzas & Food fraîches, délicieuses et livrées rapidement . Ouvert de midi à 5h du matin. Commandez dès maintenant !",
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
       robots: {
         index: true,
         follow: true,
       },
-      siteName: "Opaname",
+      siteName: "French O'Paname",
       images: [
         {
           url: `/opengraph-image.jpg`,
           secureUrl: `/opengraph-image.jpg`,
           width: 1200,
           height: 630,
-          alt: "Pizza Naan & Livraison Rapide",
+          alt: "French O'Paname & Pizzeria & Food & Livraison Rapide",
         }
       ],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Opaname Marrakech | Pizza Naan & Livraison Rapide",
-      description: "Découvrez les meilleures pizzas naan chez Opaname Marrakech & Casablanca. Savourez des pizzas fraîches, délicieuses et livrées rapidement via Glovo. Ouvert de midi à 5h du matin. Commandez dès maintenant !",
+      title: "French O'Paname & Pizzeria & Food & Livraison Rapide",
+      description: "Découvrez les meilleures pizzas & Food chez French O'Paname  . Savourez des pizzas & Food fraîches, délicieuses et livrées rapidement . Ouvert de midi à 5h du matin. Commandez dès maintenant !",
       images: [
         {
           url: `/pizza-opengraph-image.jpg`,
-          alt: "Pizza Naan & Livraison Rapide",
+          alt: "French O'Paname & Pizzeria & Food & Livraison Rapide",
         }
       ],
     },
