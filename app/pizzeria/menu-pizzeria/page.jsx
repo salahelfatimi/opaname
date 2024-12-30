@@ -1,5 +1,4 @@
 import AlertOpen from "@/components/tools/alertOpen";
-import Pizzeria from "../components/all-pizzeria/page";
 import NavbarMenu from "../components/navbarMenu";
 import AllMenu from "@/components/allMenu/page";
 

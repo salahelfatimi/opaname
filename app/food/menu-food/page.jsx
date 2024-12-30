@@ -1,6 +1,4 @@
 import AlertOpen from "@/components/tools/alertOpen";
-import FrenchFood from "../components/all-french-food/page";
-import FilterButton from "../components/filterButton";
 import NavbarMenu from "../components/navbarMenu";
 import AllMenu from "@/components/allMenu/page";
 
