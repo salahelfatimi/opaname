@@ -62,7 +62,7 @@ export default function CartFood({id}) {
     // WhatsApp link
     const sendToWhatsApp = () => {
         const message = createWhatsAppMessage();
-        const phoneNumber = '+212602314804'; 
+        const phoneNumber = '+212617506427'; 
         const url = `https://wa.me/${phoneNumber}?text=${message}`;
         localStorage.removeItem("SelectFood");
         setSavedFoods([]);

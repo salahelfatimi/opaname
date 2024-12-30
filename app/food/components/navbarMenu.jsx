@@ -47,7 +47,7 @@ export default function NavbarMenu() {
               <Link href={'tel:+212617506427'} target="_blank" className="flex items-center gap-2"><Phone size={20} /><span className="hidden lg:block">+212617506427</span></Link>
             </div>
             <div className="flex items-center gap-2 font-bold text-sm text-white">
-              <Link href={'https://g.co/kgs/2JqxjK5'} target="_blank"><MapPin size={20} /></Link>
+              <Link href={'https://maps.app.goo.gl/CvJoobAVxdMfYPt79'} target="_blank"><MapPin size={20} /></Link>
             </div>
             <Link href={'https://www.instagram.com/frenchopaname1'} target="_blank"><Instagram size={20} className="stroke-2 text-white" /></Link>
             <Facebook size={20} className="stroke-2 text-white" />
