@@ -117,6 +117,7 @@ export default function Pizzeria({ id,category }) {
                     <div className="flex flex-col justify-between items-start h-full w-full">
                       <div>
                         <h2 className="text-primary font-black text-xl uppercase">{food.name}</h2>
+                        <h2 className=" uppercase text-white font-medium text-lg"><span className="text-primary font-bold text-xl">Prix : </span>{food.price} DH</h2>
                         <div className="text-white font-medium text-sm capitalize group-hover:underline underline-offset-2" dangerouslySetInnerHTML={{ __html: food?.description }}></div>
                       </div>
                       <div className="w-full flex justify-end">
