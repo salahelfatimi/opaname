@@ -15,6 +15,7 @@ export default function Pizzeria({ id,category }) {
   const [initialLoading, setInitialLoading] = useState(true);
   const [idClicked, setIdClicked] = useState(id);
   const [timeOpen,setTimeOpen]=useState(false)
+  const [idLocalStorge, setIdLocalStorge] = useState(null);
   useEffect(() => {
     const checkStoreStatus = () => {
       const currentDate = new Date();
@@ -78,7 +79,11 @@ export default function Pizzeria({ id,category }) {
 
   const handleDetailsClose = () => {
     setIdClicked(null);
-
+    setIdLocalStorge(null);
+  };
+  const updateFood = (foodId,id) => {
+    setIdClicked(id);
+    setIdLocalStorge(foodId);
   };
 
 
@@ -89,8 +94,8 @@ export default function Pizzeria({ id,category }) {
       ) : (
         <>
           <div className={` ${timeOpen  ? "block " : "hidden"}`}>
-            <CartFood id={idClicked}/>
-            {idClicked && timeOpen   && <DetailsFood id={idClicked} onClose={handleDetailsClose} />}
+            <CartFood id={idClicked} updateFood={updateFood} />
+            {idClicked && timeOpen   && <DetailsFood idLocalStorge={idLocalStorge} id={idClicked} onClose={handleDetailsClose}/>}
           </div>
           <div className="px-2 grid md:grid-cols-2 grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-4">
             {Pizzeria.map((food, index) => (
