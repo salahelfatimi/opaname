@@ -65,7 +65,7 @@ export default function Page(){
                             ou une base crème onctueuse, chaque bouchée est un voyage gourmand. 
                             Commandez maintenant et régalez-vous !
                         </p>
-                        <Link href={'/'} className=" bg-secondary hover:bg-primary border-4 border-secondary  hover:border-white duration-700 text-white hover:text-white  lg:text-2xl text-sm4
+                        <Link href={'/pizzeria/menu-pizzeria'} className=" bg-secondary hover:bg-primary border-4 border-secondary  hover:border-white duration-700 text-white hover:text-white  lg:text-2xl text-sm4
                         font-bold  py-2 px-4 rounded-full text-center capitalize" >Commandez 🍕</Link>
                     </div>
                     <div className=" lg:w-1/2 flex items-center justify-center h-[40vh] p-10">
