@@ -3,26 +3,21 @@
 import { Send, ShoppingBag, ShoppingBasket, ShoppingCart, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
-export default function CartFood({id}) {
-    // State to hold the saved foods
+export default function CartFood({id,updateFood }) {
     const [savedFoods, setSavedFoods] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Check for localStorage data and update the state
     useEffect(() => {
         const storedFoods = JSON.parse(localStorage.getItem("SelectFood")) || [];
         setSavedFoods(storedFoods);
     }, [id]);
-
-    // Calculate the total price
+    
     const totalPrice = savedFoods.reduce((acc, food) => acc + (food.priceTotal * food.quantity), 0);
 
-    // Toggle modal visibility
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
     };
 
-    // delete food from local storage
     const removeFoodFromLocalStorage = (idToRemove) => {
         const confirmDelete = window.confirm("Êtes-vous sûr de vouloir supprimer cet article ?");
         if (confirmDelete) {
@@ -33,14 +28,12 @@ export default function CartFood({id}) {
         }
         
     };
-
-    // Function to strip HTML tags from a string
     const stripHtmlTags = (html) => {
         const doc = new DOMParser().parseFromString(html, "text/html");
         return doc.body.textContent || "";
     };
 
-    // Create WhatsApp message
+    // WhatsApp Message
     const createWhatsAppMessage = () => {
         let message = `*Résumé de votre commande :*\n\n`;
         savedFoods.forEach((food) => {
@@ -58,8 +51,6 @@ export default function CartFood({id}) {
         message += `Merci pour votre commande !`;
         return encodeURIComponent(message);
     };
-
-    // WhatsApp link
     const sendToWhatsApp = () => {
         const message = createWhatsAppMessage();
         const phoneNumber = '+212617506427'; 
@@ -81,7 +72,6 @@ export default function CartFood({id}) {
             <div className="fixed inset-0 flex flex-col justify-center items-center bg-black bg-opacity-75 z-50">
                 <div className="bg-secondary p-4  w-11/12 md:w-1/2 max-h-[50%] overflow-y-auto relative scrollbar-thin  scrollbar-thumb-primary scrollbar-track-secondary select-none ">
                     <h2 className="text-2xl font-bold mb-4 text-primary">Détails de la commande</h2>
-                    <button onClick={toggleModal} className=" fixed top-4 right-4 bg-primary text-white p-2 rounded-full  w-fit"><X/></button>
                     <div>
                         {
                             savedFoods.length === 0 && (
@@ -95,7 +85,7 @@ export default function CartFood({id}) {
                             <div key={index} className="mb-4 p-4 border-2 border-primary rounded-xl text-white flex flex-col gap-3">
                                 <h3 className="font-bold text-2xl">{food.name}</h3>
                                 <p dangerouslySetInnerHTML={{ __html: food?.description }}></p>
-                                <p><span className=" text-primary font-bold">Prix : </span>{food.priceTotal} DH</p>
+                                <p><span className=" text-primary font-bold">Prix : </span>{parseInt(food.priceTotal )*parseInt(food.quantity)} DH</p>
                                 <p><span className=" text-primary font-bold">Quantité :</span> {food.quantity}</p>
                                 <div>
                                 <span className=" text-primary font-bold">Options : </span>
@@ -103,27 +93,27 @@ export default function CartFood({id}) {
                                     <span className=" text-sm" key={idx}> {option.name} ,</span>
                                     ))}
                                 </div>
-                                <button onClick={() => removeFoodFromLocalStorage(food.id)} className="bg-red-500 w-full hover:bg-secondary border-2 hover:text-red-500 duration-700 font-bold border-red-500  text-white p-2 rounded">
+                                <button onClick={() => removeFoodFromLocalStorage(food.id)} className="bg-red-500 w-full hover:bg-red-600 border-2 hover:text-red-500 duration-700 font-bold border-red-500 text-white p-2 rounded">
                                     Supprimer
+                                </button>
+                                <button onClick={() => updateFood(food.idPanier,food.id)} className="bg-green-500 w-full hover:bg-green-600 border-2 hover:text-green-500 duration-700 font-bold border-green-500 text-white p-2 rounded">
+                                    Mettre à jour
                                 </button>
                             </div>
                         ))}
                     </div>
                 </div>
-                {savedFoods.length > 0 ? (
-                    <>
-                    <button onClick={sendToWhatsApp} className="w-11/12 flex gap-1 items-center justify-center md:w-1/2 py-4 font-bold text-sm lg:text-lg bg-green-800 text-white p-2">
-                        <Send size={30} />Envoyer Sur WhatsApp
-                    </button>
-                    <button onClick={toggleModal} className="w-11/12 flex gap-1 items-center justify-center md:w-1/2 py-4 font-bold text-sm lg:text-lg bg-primary text-white p-2">
-                        <ShoppingBag size={30} /> Ajouter plus de produits 
-                    </button>
-                    </>
-                    ):
-                    <button onClick={toggleModal} className="w-11/12 flex gap-1 items-center justify-center md:w-1/2 py-4 font-bold text-sm lg:text-lg bg-primary text-white p-2">
-                         <ShoppingBag size={30}  /> Ajoutez des produits à votre panier !
-                    </button>
-                }
+                <div className="flex flex-col gap-4 w-11/12 md:w-1/2 justify-center items-center">
+                   
+                    {savedFoods.length > 0 && (
+                        <button onClick={sendToWhatsApp} className=" capitalize w-full flex gap-2 items-center justify-center py-4 font-bold text-sm lg:text-lg bg-green-700 hover:bg-green-800 text-white p-2  shadow-md focus:outline-none focus:ring-2 focus:ring-green-400 duration-300">
+                            <Send size={30} />
+                            <span>Envoyer sur WhatsApp</span>
+                        </button>
+                    ) }
+                </div>
+                <button onClick={toggleModal} className=" capitalize w-11/12 flex gap-2 items-center justify-center md:w-1/2 py-4 font-bold text-sm lg:text-lg bg-red-600 hover:bg-red-700 text-white p-2  shadow-md focus:outline-"> <X size={30} className="text-white" /> Fermer le panier</button>
+
             </div>
         )}
         </div>

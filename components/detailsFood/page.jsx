@@ -3,29 +3,44 @@ import Loading from '@/app/loading';
 import React, { useEffect, useState } from 'react';
 import { Check, Minus, Plus, X } from "lucide-react";
 
-export default function DetailsFood({ id, onClose }) {
+export default function DetailsFood({idLocalStorge, id, onClose }) {
   const [foodDetails, setFoodDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [foodId, setFoodId] = useState(null);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [priceTotal, setPriceTotal] = useState();
   const [quantity, setQuantity] = useState(1);
   const [optionSelect, setOptionSelect] = useState([]);
- // fetch all food from restapi wordpresss
   useEffect(() => {
     let isMounted = true;
     const fetchFood = async () => {
       setIsLoading(true);
-      try {
+      try {       
         if (id) {
           const response = await fetch(`/api/findFoodRestApi?id=${id}`, { cache: 'no-store' });
           if (!response.ok) throw new Error("Failed to fetch data");
           const foodData = await response.json();
           if (isMounted) {
+            setFoodId(foodData.id);
             setFoodDetails(foodData);
             setName(foodData.name);
             setDescription(foodData.description);
             setPriceTotal(parseInt(foodData.price));
+          }
+        } 
+        if (idLocalStorge) {
+          const storedFoods = JSON.parse(localStorage.getItem("SelectFood")) || [];
+          const selectedFood = storedFoods.find(food => food.idPanier === idLocalStorge);
+
+          if (selectedFood) {
+            if (isMounted) {
+              await setOptionSelect(selectedFood.optionSelect || []);
+              await setQuantity(selectedFood.quantity || 1);
+              await setPriceTotal(selectedFood.priceTotal || 0);
+            }
+
+           
           }
         }
       } catch (err) {
@@ -61,8 +76,12 @@ export default function DetailsFood({ id, onClose }) {
   }
     // Save the food array back to localStorage
   const saveFoodToLocalStorage = () => {
-
-    const foodData = {id: Date.now(),name, description, priceTotal, quantity, optionSelect };
+    if(idLocalStorge){
+      const storedFoods = JSON.parse(localStorage.getItem("SelectFood")) || [];
+      const updatedFoods = storedFoods.filter(food => food.idPanier !== idLocalStorge);
+      localStorage.setItem("SelectFood", JSON.stringify(updatedFoods));
+    }
+    const foodData = {idPanier: Date.now(),id:foodId,name, description, priceTotal, quantity, optionSelect };
     let savedFoods = JSON.parse(localStorage.getItem("SelectFood")) || [];
     savedFoods.push(foodData);
     localStorage.setItem("SelectFood", JSON.stringify(savedFoods));
