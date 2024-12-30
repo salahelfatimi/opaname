@@ -39,7 +39,7 @@ const AlertOpen = () => {
 
   return (
     <div className="  flex items-center justify-center">
-      {!timeOpen &&<div className=' bg-primary p-4 text-white rounded-full flex gap-2 items-center justify-center'><Store /> <p className=' font-medium'>Nous sommes actuellement fermés, nous ouvrirons dans <span className=' font-bold bg-secondary rounded-full p-2'>{timeToOpen} . </span></p></div>}
+      {!timeOpen &&<div className=' bg-primary p-4 text-white rounded-full flex gap-2 items-center justify-center text-sm '><Store /> <p className=' font-medium'>Fermé actuellement, réouverture à <span className=' font-bold bg-secondary rounded-full p-2 animate-pulse'>{timeToOpen} . </span></p></div>}
     </div>
   );
 };

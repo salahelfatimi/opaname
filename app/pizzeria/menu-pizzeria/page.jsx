@@ -1,3 +1,4 @@
+import AlertOpen from "@/components/tools/alertOpen";
 import Pizzeria from "../components/all-pizzeria/page";
 import NavbarMenu from "../components/navbarMenu";
 
@@ -46,7 +47,7 @@ export default async function MenuPizzeria({ searchParams }){
             <NavbarMenu/>
             <div className=" flex flex-col gap-10 items-center justify-center pt-56">
                 <h2 className=" uppercase text-center font-black text-3xl lg:text-6xl text-white">🍕 Pizzeria Deliziosa - Menu</h2>
-                {/* <FilterButton/> */}
+                <AlertOpen/>
                 <div className="container ">
                     <Pizzeria id={id} category={category?category:25}/>
                 </div>
