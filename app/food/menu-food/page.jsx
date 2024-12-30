@@ -2,6 +2,7 @@ import AlertOpen from "@/components/tools/alertOpen";
 import FrenchFood from "../components/all-french-food/page";
 import FilterButton from "../components/filterButton";
 import NavbarMenu from "../components/navbarMenu";
+import AllMenu from "@/components/allMenu/page";
 
 export async function generateMetadata() {
     return {
@@ -50,7 +51,7 @@ export default async function MenuFood({ searchParams }){
                     <h2 className=" uppercase text-center font-black text-3xl lg:text-6xl text-white">food Deliziosa - Menu</h2>
                     <AlertOpen/>
                     <div className="container ">
-                        <FrenchFood id={id} category={category?category:16}/>
+                        <AllMenu id={id} category={category?category:16}/>
                     </div>
                 </div>
             </div>
