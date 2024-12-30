@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 export default function FilterButton() {
-    const [selectFilter, setSelectFilter] = useState(16);
+    const [selectFilter, setSelectFilter] = useState(25);
     const [categories, setCategories] = useState([]);
     const [emblaRef] = useEmblaCarousel({ loop: false, align: "start" });
 
@@ -33,7 +33,7 @@ export default function FilterButton() {
             <div className="overflow-hidden " ref={emblaRef}>
                 <div className="flex flex-row gap-6 pl-6 active:cursor-grabbing cursor-grab select-none ">
                     
-                    <button onClick={() => handleFilterClick(16)} className={` text-center  py-2 px-4 whitespace-nowrap font-bold text-sm  hover:bg-secondary rounded-full  duration-500 ${selectFilter === 16 ? ' text-white bg-secondary ' : 'bg-primary text-white'}`}>
+                    <button onClick={() => handleFilterClick(25)} className={` text-center  py-2 px-4 whitespace-nowrap font-bold text-sm  hover:bg-secondary rounded-full  duration-500 ${selectFilter === 25 ? ' text-white bg-secondary ' : 'bg-primary text-white'}`}>
                         Tous Produits
                     </button>
                     {categories.map(category => (

@@ -1,21 +1,44 @@
 'use client'
-import { Dot, Facebook, Instagram, Map, MapPin, Menu, Phone, ShoppingBasket, X } from "lucide-react"
+import { DoorClosed, DoorOpen, Dot, Facebook, Instagram, Map, MapPin, Menu, Phone, ShoppingBasket, X } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Navbar(){
     const [openMenu,setOpenMenu]=useState(true)
+    const [timeOpen,setTimeOpen]=useState(false)
     const itemNavbar=[
         {title:'Accueil',href:'/'},
         {title:'Pizzeria',href:'/pizzeria'},
     ]
+
+    useEffect(() => {
+        const checkStoreStatus = () => {
+          const currentDate = new Date();
+          const currentHour = currentDate.getHours(); 
+          const openingHour = 12; 
+          const closingHour = 5; 
+          if (
+            (currentHour >= openingHour && currentHour < 24) || 
+            (currentHour < closingHour) 
+          ) {
+            setTimeOpen(true); 
+          } else {
+            setTimeOpen(false);
+          }
+        };
+        checkStoreStatus();
+        const interval = setInterval(checkStoreStatus, 60000); 
+        return () => clearInterval(interval);
+    }, []);
+
     return(
         <div className="fixed right-0 left-0 z-30">
             <div className="bg-primary">
                 <div className=" w-full  container py-3  flex flex-row justify-between items-center">
                     <div>
-                        <p className=" text-white font-black animate-pulse flex gap-1 items-center"><Dot size={30} />Ouvert Maintenant</p>
-                    </div>
+                        <p className="text-white font-black animate-pulse flex gap-1 items-center">
+                            {timeOpen === true ? (<span className="flex items-center gap-2" ><DoorOpen /> Ouvert Maintenant</span>) : (<span className="flex items-center gap-2"><DoorClosed /> Fermé Maintenant</span>)}
+                        </p>                    </div>
                     <div className=" flex flex-row items-center gap-4">
                         <div className=" flex items-center gap-2 font-bold text-sm text-white">
                             <Link href={'tel:+212617506427'} target="_blank" className=" flex items-center gap-2"><Phone size={20} /><span className=" hidden lg:block">+212617506427</span></Link>

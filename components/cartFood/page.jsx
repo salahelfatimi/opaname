@@ -72,7 +72,7 @@ export default function CartFood({id}) {
 
     return (
         <div>
-        <div onClick={toggleModal} className="fixed bottom-4  right-10  text-sm lg:text-lg bg-primary hover:bg-secondary border-2 border-primary hover:text-primary duration-700 font-bold p-3 shadow-lg z-40 flex flex-row justify-center text-white  gap-1 items-center rounded-xl cursor-pointer">
+        <div onClick={toggleModal} className={`${savedFoods.length>0?'animate-bounce':'animate-none'} fixed bottom-4  right-10   text-sm lg:text-base bg-primary hover:bg-secondary border-2 border-primary hover:text-primary duration-700 font-bold p-3 shadow-lg z-40 flex flex-row justify-center text-white  gap-1 items-center rounded-xl cursor-pointer`}>
             <ShoppingCart size={30} />
             <h2>Résumé de commande</h2>
             <p>{savedFoods.length} articles - {totalPrice} DH</p>

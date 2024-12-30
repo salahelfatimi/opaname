@@ -14,6 +14,26 @@ export default function Pizzeria({ id,category }) {
   const [allLoaded, setAllLoaded] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true);
   const [idClicked, setIdClicked] = useState(id);
+  const [timeOpen,setTimeOpen]=useState(false)
+  useEffect(() => {
+    const checkStoreStatus = () => {
+      const currentDate = new Date();
+      const currentHour = currentDate.getHours(); 
+      const openingHour = 12; 
+      const closingHour = 5; 
+      if (
+        (currentHour >= openingHour && currentHour < 24) || 
+        (currentHour < closingHour) 
+      ) {
+        setTimeOpen(true); 
+      } else {
+        setTimeOpen(false);
+      }
+    };
+    checkStoreStatus();
+    const interval = setInterval(checkStoreStatus, 60000); 
+    return () => clearInterval(interval);
+  }, []);
 
   const fetchFrenchFood = useCallback(async (page, isInitialFetch = false) => {
     setLoading(true);
@@ -68,9 +88,9 @@ export default function Pizzeria({ id,category }) {
         <Loading />
       ) : (
         <>
-          <div>
+          <div className={` ${timeOpen  ? "block " : "hidden"}`}>
             <CartFood id={idClicked}/>
-            {idClicked  && <DetailsFood id={idClicked} onClose={handleDetailsClose} />}
+            {idClicked && timeOpen   && <DetailsFood id={idClicked} onClose={handleDetailsClose} />}
           </div>
           <div className="px-2 grid md:grid-cols-2 grid-cols-1 xl:grid-cols-3 2xl:grid-cols-3 gap-4">
             {Pizzeria.map((food, index) => (

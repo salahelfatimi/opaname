@@ -16,6 +16,26 @@ export default function FrenchFood({ id,category }) {
   const [allLoaded, setAllLoaded] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true);
   const [idClicked, setIdClicked] = useState(id);
+  const [timeOpen,setTimeOpen]=useState(false)
+  useEffect(() => {
+    const checkStoreStatus = () => {
+      const currentDate = new Date();
+      const currentHour = currentDate.getHours(); 
+      const openingHour = 12; 
+      const closingHour = 5; 
+      if (
+        (currentHour >= openingHour && currentHour < 24) || 
+        (currentHour < closingHour) 
+      ) {
+        setTimeOpen(true); 
+      } else {
+        setTimeOpen(false);
+      }
+    };
+    checkStoreStatus();
+    const interval = setInterval(checkStoreStatus, 60000); 
+    return () => clearInterval(interval);
+  }, []);
 
   const fetchFrenchFood = useCallback(async (page, isInitialFetch = false) => {
     setLoading(true);
@@ -68,11 +88,11 @@ export default function FrenchFood({ id,category }) {
         <Loading />
       ) : (
         <>
-          <div>
+          <div className={` ${timeOpen  ? "block " : "hidden"}`}>
             <CartFood id={idClicked}/>
-            {idClicked  && <DetailsFood id={idClicked} onClose={handleDetailsClose} />}
+            {idClicked && timeOpen   && <DetailsFood id={idClicked} onClose={handleDetailsClose} />}
           </div>
-          <div className="px-2 grid md:grid-cols-2 grid-cols-1 xl:grid-cols-2 gap-4">
+          <div className="px-2 grid md:grid-cols-2 grid-cols-1 xl:grid-cols-2 gap-4 select-none">
             {FrenchFood.map((food, index) => (
                 <div key={index} onClick={() => setIdClicked(food.id)} className="flex flex-col justify-between gap-2 border-4 border-primary h-44 rounded-xl p-4 group cursor-pointer">
                   <div className="flex flex-row gap-4 h-full w-full">

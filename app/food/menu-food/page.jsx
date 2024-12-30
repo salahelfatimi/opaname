@@ -1,3 +1,4 @@
+import AlertOpen from "@/components/tools/alertOpen";
 import FrenchFood from "../components/all-french-food/page";
 import FilterButton from "../components/filterButton";
 import NavbarMenu from "../components/navbarMenu";
@@ -47,6 +48,7 @@ export default async function MenuFood({ searchParams }){
             <div className=" flex flex-col gap-10 items-center bg-secondary pt-56 ">
                 <div className=" flex flex-col w-full gap-10">
                     <h2 className=" uppercase text-center font-black text-3xl lg:text-6xl text-white">food Deliziosa - Menu</h2>
+                    <AlertOpen/>
                     <div className="container ">
                         <FrenchFood id={id} category={category?category:16}/>
                     </div>

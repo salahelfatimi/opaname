@@ -10,6 +10,8 @@ export async function GET(request) {
       category: category,
       status: 'publish',
       page:page,
+      order_by: 'category',
+      order:'asc',
       _fields: 'id,name,date_created,status,description,price,categories,tags,images,attributes'
     });
     return new Response(JSON.stringify(response.data), {

@@ -1,21 +1,45 @@
 'use client'
-import { Dot, Facebook, Instagram, Map, MapPin, Menu, Phone, ShoppingBasket, X } from "lucide-react"
+import { DoorClosed, DoorOpen, Facebook, Instagram, MapPin, Menu, Phone, X } from "lucide-react"
 import Link from "next/link"
 import FilterButton from "./filterButton"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function NavbarMenu(){
     const [openMenu,setOpenMenu]=useState(true)
+    const [timeOpen,setTimeOpen]=useState(false)
     const itemNavbar=[
         {title:'Accueil',href:'/'},
-        {title:'Food',href:'/Food'},
+        {title:'Food',href:'/food'},
     ]
+   
+    useEffect(() => {
+        const checkStoreStatus = () => {
+          const currentDate = new Date();
+          const currentHour = currentDate.getHours(); 
+          const openingHour = 12; 
+          const closingHour = 5; 
+          if (
+            (currentHour >= openingHour && currentHour < 24) || 
+            (currentHour < closingHour) 
+          ) {
+            setTimeOpen(true); 
+          } else {
+            setTimeOpen(false);
+          }
+        };
+        checkStoreStatus();
+        const interval = setInterval(checkStoreStatus, 60000); 
+        return () => clearInterval(interval);
+    }, []);
+   
     return(
         <div className="fixed right-0 left-0 z-30">
             <div className="bg-primary">
-                <div className=" w-full  container py-3  flex flex-row justify-between items-center">
+                <div className=" w-full  container py-4  flex flex-row justify-between items-center">
                     <div>
-                        <p className=" text-white font-black animate-pulse flex gap-1 items-center"><Dot size={30} />Ouvert Maintenant</p>
+                        <p className="text-white font-black animate-pulse flex gap-1 items-center">
+                            {timeOpen === true ? (<span className="flex items-center gap-2" ><DoorOpen /> Ouvert Maintenant</span>) : (<span className="flex items-center gap-2"><DoorClosed /> Fermé Maintenant</span>)}
+                        </p>                    
                     </div>
                     <div className=" flex flex-row items-center gap-4">
                         <div className=" flex items-center gap-2 font-bold text-sm text-white">
@@ -44,7 +68,7 @@ export default function NavbarMenu(){
                                 ))
                             }
                         </div>
-                        <Link href={'/food/menu-food'} className=" bg-primary py-2 px-3 hover:bg-secondary border border-primary hover:text-prborder-primary duration-700 text-sm font-bold text-white rounded">Commandez Pizzeria</Link>
+                        <Link href={'/food/menu-food'} className=" bg-primary py-2 px-3 hover:bg-secondary border border-primary hover:text-prborder-primary duration-700 text-sm font-bold text-white rounded">Commandez Food</Link>
                     </div>
                     <button onClick={()=>(setOpenMenu(!openMenu))} className="bg-secondary p-1 lg:hidden block">
                         <Menu size={35} className=" stroke-white "/>
@@ -65,7 +89,7 @@ export default function NavbarMenu(){
                         ))
 
                     }
-                    <Link href={'/food/menu-food'} className=" bg-primary py-2 px-3 hover:bg-secondary border border-primary hover:text-prborder-primary duration-700 text-sm font-bold text-white rounded">Commandez Pizzeria</Link>
+                    <Link href={'/food/menu-food'} className=" bg-primary py-2 px-3 hover:bg-secondary border border-primary hover:text-prborder-primary duration-700 text-sm font-bold text-white rounded">Commandez Food</Link>
                 </div>
             </div>
             <div className=" bg-primary ">
