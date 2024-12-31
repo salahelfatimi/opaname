@@ -15,11 +15,7 @@ export async function GET(request) {
       page: page,         
       _fields: "id,name",
     });
-
-    // Sort categories by ID in descending order to get the most recent ones first
-    const sortedCategories = response.data.sort((a, b) => b.id - a.id);  
-
-    return new Response(JSON.stringify(sortedCategories), {
+    return new Response(JSON.stringify(response.data), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
