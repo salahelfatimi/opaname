@@ -1,7 +1,6 @@
 import {  Nunito } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/footer";
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 const nunito = Nunito({weight:["200","300","400","500","600","700","800","900","1000"],subsets:["cyrillic"]});
 
 
@@ -18,6 +17,7 @@ export const metadata= {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId={process.env.ANALYTICS_ID} />
       <body className={`${nunito.className} scroll-smooth   scrollbar scrollbar-thumb-primary scrollbar-track-secondary  overflow-y-scroll`}>
         {children}
        
