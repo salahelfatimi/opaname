@@ -14,7 +14,7 @@ export default function FilterButton() {
     // Fetch categories on component mount
     useEffect(() => {
         const fetchCategories = async () => {
-            try {
+            try { 
                 const response = await fetch(`/api/restApiCategories?type=${25}`);  // Replace with your actual endpoint URL
                 const data = await response.json();
                 setCategories(data);  

@@ -48,7 +48,6 @@ export default function Home() {
    
   return (
     <div className=" relative h-[100vh]    overflow-hidden flex flex-col  justify-between  bg-secondary ">
-      
       <div className=" absolute z-20 inset-0 bg-black opacity-40"></div>
       <video
         width="100%"
