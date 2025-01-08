@@ -1,6 +1,5 @@
 'use client'
 
-import AutoScroll from "embla-carousel-auto-scroll";
 import useEmblaCarousel from "embla-carousel-react";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";

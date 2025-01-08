@@ -41,8 +41,9 @@ export async function generateMetadata() {
 }
   
 export default async function MenuPizzeria({ searchParams }){
-    const { id, category } = searchParams || {};
-    const categorySearch = category || 25;
+    const { id , category } = await searchParams || {};
+
+    const categorySearch = await category || 25;
     return(
         <>
             <NavbarMenu/>
