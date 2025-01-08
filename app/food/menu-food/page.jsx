@@ -40,7 +40,8 @@ export async function generateMetadata() {
     };
 }
 export default async function MenuFood({ searchParams }){
-    const { id,category } = await searchParams;
+    const { id, category } = searchParams || {};
+    const categorySearch = category || 16;
     return(
         <>
             <NavbarMenu/>
@@ -49,7 +50,7 @@ export default async function MenuFood({ searchParams }){
                     <h2 className=" uppercase text-center font-black text-3xl lg:text-6xl text-white">food Deliziosa - Menu</h2>
                     <AlertOpen/>
                     <div className="container ">
-                        <AllMenu id={id} category={category?category:16}/>
+                        <AllMenu idSearch={id} category={categorySearch}/>
                     </div>
                 </div>
             </div>

@@ -8,14 +8,14 @@ import { useCallback, useEffect, useState } from "react";
 
 
 
-export default function AllMenu({ id,category }) {
+export default function AllMenu({ idSearch,category }) {
   const [food, setFood] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [allLoaded, setAllLoaded] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true);
-  const [idClicked, setIdClicked] = useState(id);
+  const [idClicked, setIdClicked] = useState(idSearch);
   const [timeOpen,setTimeOpen]=useState(false)
   const [idLocalStorge, setIdLocalStorge] = useState(null);
   useEffect(() => {

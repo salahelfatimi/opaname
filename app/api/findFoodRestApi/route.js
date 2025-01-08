@@ -7,6 +7,7 @@ export async function GET(request) {
 
   try {
     const response = await api.get(`products/${id}`, {
+      status: 'publish',
       _fields: 'id,name,date_created,status,description,price,categories,tags,images,attributes'
     });
     return new Response(JSON.stringify(response.data), {

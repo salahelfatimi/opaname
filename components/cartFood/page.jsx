@@ -1,6 +1,6 @@
 "use client"
 
-import { Send, ShoppingBag, ShoppingBasket, ShoppingCart, X } from "lucide-react";
+import { Send, ShoppingBasket, ShoppingCart, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function CartFood({id,updateFood }) {
