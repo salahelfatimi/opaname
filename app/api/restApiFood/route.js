@@ -1,9 +1,9 @@
 import { api } from "../WooCommerceRestApiConnect";
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
-  const page =  searchParams.get("page") || 1;
-  const perPage =  searchParams.get("perPage") || 10;
-  const category =  searchParams.get("category");
+  const page = await  searchParams.get("page") || 1;
+  const perPage = await  searchParams.get("perPage") || 10;
+  const category = await  searchParams.get("category");
   try {
     const response = await api.get('products', {
       per_page: perPage,
