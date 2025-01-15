@@ -49,6 +49,9 @@ export default function Home() {
   return (
     <div className=" relative h-[100vh]    overflow-hidden flex flex-col  justify-between  bg-secondary ">
       <div className=" absolute z-20 inset-0 bg-black opacity-40"></div>
+      <h1 className="absolute z-0 opacity-0">
+        French O'Paname & Pizzeria & Food & Livraison Rapide
+      </h1>      
       <video
         width="100%"
         height="100%"
