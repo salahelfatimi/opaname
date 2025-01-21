@@ -15,7 +15,7 @@ export const metadata= {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <GoogleAnalytics gaId={process.env.ANALYTICS_ID} />
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_ANALYTICS_ID} />
       <body className={`${nunito.className} scroll-smooth   scrollbar scrollbar-thumb-primary scrollbar-track-secondary  overflow-y-scroll`}>
         {children}
       </body>
