@@ -4,7 +4,7 @@ import LoadingPage from "@/components/tools/loading";
 
 export async function generateMetadata() {
   return {
-    title: "French O'Paname & Pizzeria & Food & Livraison Rapide",
+    title: "French O'Paname | Pizzeria & Food & Livraison Rapide",
     description: "Découvrez les meilleures pizzas & Food chez French O'Paname  . Savourez des pizzas & Food fraîches, délicieuses et livrées rapidement . Ouvert de midi à 5h du matin. Commandez dès maintenant !",
     keywords: ["French O'Paname Marrakech, French O'Paname Casablanca, Livraison plats français Marrakech, Livraison plats français Casablanca, Opaname menu français, Fast-food Marrakech, Fast-food Casablanca, Livraison Glovo cuisine française, Plats français Opaname"],      
     alternates: {
