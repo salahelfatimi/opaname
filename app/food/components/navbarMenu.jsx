@@ -89,7 +89,9 @@ export default function NavbarMenu() {
         </div>
       </div>
 
-    
+      <div className="bg-primary">
+        <FilterButton />
+      </div>
     </div>
   );
 }
